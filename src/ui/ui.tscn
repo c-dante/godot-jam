@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://test.theme" type="Theme" id=1]
 [ext_resource path="res://src/ui/MenuBtn.gd" type="Script" id=2]
 [ext_resource path="res://src/ui/ui.gd" type="Script" id=3]
+[ext_resource path="res://src/ui/ui.theme" type="Theme" id=4]
 
 [node name="Control" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
-theme = ExtResource( 1 )
+theme = ExtResource( 4 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MenuBtn" type="ToolButton" parent="."]
 margin_right = 12.0
@@ -24,9 +28,8 @@ targetPath = NodePath("../Menu")
 [node name="Menu" type="TabContainer" parent="."]
 margin_left = 5.0
 margin_top = 29.0
-margin_right = 556.0
-margin_bottom = 261.0
-theme = ExtResource( 1 )
+margin_right = 249.0
+margin_bottom = 240.0
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false

@@ -9,6 +9,7 @@ Some notes and a todo and resources for now:
 ### Work / TODO
 - Basic twinstick impl going
   - Movement of PC, WASD + mouse for now, controllers later
+  - **!!** Got camera based WASD, working on facing mouse.
 - Resource collection
 - Firing a weapon
 - Building things?

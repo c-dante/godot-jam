@@ -1,7 +1,5 @@
 extends Spatial
 
-class_name Bar
-
 export (float) var progress = 0.5
 onready var filling: Spatial = $"inside"
 

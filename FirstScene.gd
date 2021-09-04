@@ -45,7 +45,7 @@ func demoSurfaceMesh():
 
 
 func spawnRocks():
-	var spawnArea = $"Level/Floor"
+	# var spawnArea = $"Level/Floor"
 	# print(spawnArea.)
 	for i in range(10):
 		print(i)

@@ -28,6 +28,7 @@ barPath = NodePath("../bar")
 gatheringAreaPath = NodePath("../gather")
 gatherTimeSec = 5.0
 produces = [ 0 ]
+producesVolume = [ 1.0 ]
 
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 0.482913, -0.672677, -0.560626, 0.439016, 0.739936, -0.509665, 0.757668, 0, 0.652641, -0.657505, -0.507156, 0 )

@@ -1,6 +1,6 @@
 extends Node
 
-const Resources = preload("res://src/Resources.gd")
+const Res = preload("res://src/Resources.gd")
 const Bar = preload("res://src/Bar/Bar.gd")
 
 export (NodePath) var barPath
@@ -9,22 +9,73 @@ var bar: Bar
 export (NodePath) var gatheringAreaPath
 onready var gatheringArea: Area = get_node(gatheringAreaPath)
 
-export (float) var gatherTimeSec = 1.0
+export (float) var gatherTimeSec = 2.0
 
-export (Array, Resources.ResourceType) var produces
+export (Array, Res.ResourceType) var produces
+export (Array, float) var producesVolume
 
+var gathering = {}
+var miners = 0
 var gatherCycle = {}
-var remaining
+var remaining = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if barPath:
 		bar = get_node(barPath)
-	gatheringArea.connect('body_entered', self, '_on_bodyEnter')
-	gatheringArea.connect('body_exited', self, '_on_bodyExit')
+	if gatheringArea.connect('body_entered', self, '_on_bodyEnter') != OK:
+		push_error("Gatherable failed to connect enter")
+
+	if gatheringArea.connect('body_exited', self, '_on_bodyExit') != OK:
+		push_error("Gatherable failed to connect exit")
+
+	remaining = gatherTimeSec
+	assert(produces.size() == producesVolume.size(), "Production and volume length must align")
+	bar.progress = remaining / gatherTimeSec;
 
 func _on_bodyEnter(body: Node):
-	print("ENTER", body)
+	var gatherer = body.get_instance_id()
+	gathering[gatherer] = true
+	miners += 1
+	if !gatherCycle.has(gatherer):
+		gatherCycle[gatherer] = 0
 
 func _on_bodyExit(body: Node):
-	print("EXIT", body)
+	gathering[body.get_instance_id()] = false
+	miners -= 1
+
+func _physics_process(delta):
+	# no-op if no one is mining
+	if miners <= 0:
+		return
+
+	# Error rate
+	var adjDelta = delta if delta < remaining else remaining
+
+	# Allocate mining ownership
+	for name in gathering:
+		if gathering[name]:
+			gatherCycle[name] += adjDelta
+
+	# Distribute resources
+	remaining -= adjDelta
+
+	# Consume a cycle of resource
+	if remaining <= 0:
+		remaining = gatherTimeSec
+
+		# Allocate based on consumption porition
+		for name in gatherCycle:
+			var portion = gatherCycle[name] / gatherTimeSec
+			if !Resources.Inventory.has(name):
+				Resources.Inventory[name] = {}
+
+			for produceIdx in produces:
+				var resource = produces[produceIdx]
+				var volume = producesVolume[produceIdx]
+				if !Resources.Inventory[name].has(resource):
+					Resources.Inventory[name][resource] = 0
+				Resources.Inventory[name][resource] += portion * volume
+
+	# Update bar
+	bar.progress = remaining / gatherTimeSec;

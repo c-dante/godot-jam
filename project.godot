@@ -64,6 +64,7 @@ config/icon="res://icon.png"
 
 Global="*res://src/Global.gd"
 TimedLog="*res://src/util/TimedLog.gd"
+Resources="*res://src/Resources.gd"
 
 [editor_plugins]
 

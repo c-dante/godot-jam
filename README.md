@@ -7,10 +7,11 @@ Some notes and a todo and resources for now:
 - The demo I have is there -- great starting place and a couple nice addons
 
 ### Work / TODO
-- Basic twinstick impl going
+- **DONE** Basic twinstick impl going
   - Movement of PC, WASD + mouse for now, controllers later
-  - **!!** Got camera based WASD, working on facing mouse.
+  - DONE: WASD move relative to camera, face mouse projected to plane
 - Resource collection
+  - Get a couple different resource types and passively harvest when nearby
 - Firing a weapon
 - Building things?
   - Need to make things to build

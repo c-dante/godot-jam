@@ -48,4 +48,7 @@ func _physics_process(delta):
 	if node.is_on_floor():
 		currentVerticalSpeed.y = 0
 		isAirborne = false
-	pass
+
+	# Respawn
+	if node.transform.origin.y < -10:
+		node.transform.origin = Vector3(0, 10, 0)

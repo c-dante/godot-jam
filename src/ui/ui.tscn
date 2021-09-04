@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://test.theme" type="Theme" id=1]
 [ext_resource path="res://src/ui/MenuBtn.gd" type="Script" id=2]
+[ext_resource path="res://src/ui/ui.gd" type="Script" id=3]
 
 [node name="Control" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="MenuBtn" type="ToolButton" parent="."]
 margin_right = 12.0
@@ -20,7 +22,6 @@ __meta__ = {
 targetPath = NodePath("../Menu")
 
 [node name="Menu" type="TabContainer" parent="."]
-visible = false
 margin_left = 5.0
 margin_top = 29.0
 margin_right = 556.0
@@ -31,13 +32,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Test" type="Tabs" parent="Menu"]
+[node name="Tab" type="Tabs" parent="Menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
 margin_top = 29.0
 margin_right = -5.0
 margin_bottom = -5.0
+
+[node name="CameraBox" type="VBoxContainer" parent="Menu/Tab"]
+margin_right = 121.0
+margin_bottom = 198.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player Camera" type="Button" parent="Menu/Tab/CameraBox"]
+margin_right = 121.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 236.825, 76.468 )
+toggle_mode = true
+text = "Player Camera"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera1" type="Button" parent="Menu/Tab/CameraBox"]
+margin_top = 26.0
+margin_right = 121.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 236.825, 76.468 )
+toggle_mode = true
+text = "Camera 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Another" type="Tabs" parent="Menu"]
 visible = false
@@ -61,3 +90,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
+[connection signal="pressed" from="Menu/Tab/CameraBox/Player Camera" to="." method="_on_Player_Camera_pressed"]
+[connection signal="pressed" from="Menu/Tab/CameraBox/Camera1" to="." method="_on_Camera1_pressed"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://test.theme" type="Theme" id=1]
 [ext_resource path="res://src/ui/MenuBtn.gd" type="Script" id=2]
 [ext_resource path="res://src/ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/ui.theme" type="Theme" id=4]
+[ext_resource path="res://src/ui/LoadBtn.gd" type="Script" id=5]
+[ext_resource path="res://src/ui/SaveBtn.gd" type="Script" id=6]
 
 [node name="Control" type="Control"]
 margin_right = 40.0
@@ -35,7 +37,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tab" type="Tabs" parent="Menu"]
+[node name="MainTab" type="Tabs" parent="Menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -43,35 +45,28 @@ margin_top = 29.0
 margin_right = -5.0
 margin_bottom = -5.0
 
-[node name="CameraBox" type="VBoxContainer" parent="Menu/Tab"]
-margin_right = 121.0
-margin_bottom = 198.0
+[node name="GridContainer" type="GridContainer" parent="Menu/MainTab"]
+margin_right = 233.0
+margin_bottom = 177.0
+columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player Camera" type="Button" parent="Menu/Tab/CameraBox"]
-margin_right = 121.0
+[node name="SaveBtn" type="Button" parent="Menu/MainTab/GridContainer"]
+margin_right = 41.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 236.825, 76.468 )
-toggle_mode = true
-text = "Player Camera"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Save"
+script = ExtResource( 6 )
 
-[node name="Camera1" type="Button" parent="Menu/Tab/CameraBox"]
-margin_top = 26.0
-margin_right = 121.0
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 236.825, 76.468 )
-toggle_mode = true
-text = "Camera 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="LoadBtn" type="Button" parent="Menu/MainTab/GridContainer"]
+margin_left = 51.0
+margin_right = 93.0
+margin_bottom = 22.0
+text = "Load"
+script = ExtResource( 5 )
 
-[node name="Another" type="Tabs" parent="Menu"]
+[node name="CamTab" type="Tabs" parent="Menu"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -84,17 +79,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="debug_output" type="Label" parent="Menu/Another"]
-margin_right = 367.0
-margin_bottom = 129.0
-text = "TEST TEST TEST TEST TEST"
-autowrap = true
+[node name="CameraBox" type="VBoxContainer" parent="Menu/CamTab"]
+margin_right = 121.0
+margin_bottom = 198.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player Camera" type="Button" parent="Menu/CamTab/CameraBox"]
+margin_right = 121.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 236.825, 76.468 )
+toggle_mode = true
+text = "Player Camera"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera1" type="Button" parent="Menu/CamTab/CameraBox"]
+margin_top = 26.0
+margin_right = 121.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 236.825, 76.468 )
+toggle_mode = true
+text = "Camera 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IntroDialog" type="ConfirmationDialog" parent="."]
-visible = true
 margin_left = 82.1821
 margin_top = 119.523
 margin_right = 434.182
@@ -115,5 +128,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
-[connection signal="pressed" from="Menu/Tab/CameraBox/Player Camera" to="." method="_on_Player_Camera_pressed"]
-[connection signal="pressed" from="Menu/Tab/CameraBox/Camera1" to="." method="_on_Camera1_pressed"]
+[connection signal="pressed" from="Menu/MainTab/GridContainer/SaveBtn" to="Menu/MainTab/GridContainer/SaveBtn" method="_on_SaveBtn_pressed"]
+[connection signal="pressed" from="Menu/MainTab/GridContainer/LoadBtn" to="Menu/MainTab/GridContainer/LoadBtn" method="_on_LoadBtn_pressed"]
+[connection signal="pressed" from="Menu/CamTab/CameraBox/Player Camera" to="." method="_on_Player_Camera_pressed"]
+[connection signal="pressed" from="Menu/CamTab/CameraBox/Camera1" to="." method="_on_Camera1_pressed"]

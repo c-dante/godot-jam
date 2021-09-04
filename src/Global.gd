@@ -1,4 +1,4 @@
-class_name Global
+extends Node
 
 static func test():
 	print("Hi")

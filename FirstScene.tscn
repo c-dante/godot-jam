@@ -1,60 +1,86 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://mat/rock.material" type="Material" id=1]
+[ext_resource path="res://src/Rock/Rock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/GimbalCamera.gd" type="Script" id=2]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://FirstScene.gd" type="Script" id=4]
 [ext_resource path="res://src/InputMovement.gd" type="Script" id=5]
 [ext_resource path="res://src/ui/ui.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/util/TimedLog.gd" type="Script" id=7]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -43.8946, 2.04151, -48.7863, -49.8946, 2.04151, -48.7863, -49.8946, 2.04151, -41.5863, -37.5946, 2.04151, -48.7863, -43.8946, 2.04151, -48.7863, -49.8946, 2.04151, -41.5863, -37.5946, 2.04151, -48.7863, -49.8946, 2.04151, -41.5863, -49.8946, 2.04151, -34.0863, -31.2946, 2.04151, -48.7863, -49.8946, 2.04151, -12.1863, -49.8946, 2.04151, -4.68629, 0.205357, 2.04151, 7.01371, -6.09464, 2.04151, -48.7863, -12.3946, 2.04151, -48.7863, -31.2946, 2.04151, -48.7863, -49.8946, 2.04151, -34.0863, -49.8946, 2.04151, -26.8863, -24.9946, 2.04151, -48.7863, -49.8946, 2.04151, 2.81371, -0.694641, 2.04151, 7.31371, 0.205357, 2.04151, 7.01371, -49.8946, 2.04151, -4.68629, -18.6946, 2.04151, -48.7863, -24.9946, 2.04151, -48.7863, -49.8946, 2.04151, -26.8863, -49.8946, 2.04151, -19.3863, 0.205357, 2.04151, 7.01371, 0.205357, 2.04151, -48.7863, -6.09464, 2.04151, -48.7863, -12.3946, 2.04151, -48.7863, -18.6946, 2.04151, -48.7863, -49.8946, 2.04151, -19.3863, -49.8946, 2.04151, -12.1863, -49.8946, 2.04151, 2.81371, -49.8946, 2.04151, 10.3137, -2.49464, 2.04151, 10.3137, -0.694641, 2.04151, 7.31371, 48.8054, 2.04151, -41.5863, 48.8054, 2.04151, -48.7863, 42.5054, 2.04151, -48.7863, 48.8054, 2.04151, -41.5863, 42.5054, 2.04151, -48.7863, 36.5054, 2.04151, -48.7863, 48.8054, 2.04151, -34.3863, 2.00536, 2.04151, 7.61372, 3.50536, 2.04151, 9.71371, 48.8054, 2.04151, 2.21371, 48.8054, 2.04151, -4.98629, 48.8054, 2.04151, -27.1863, 48.8054, 2.04151, -34.3863, 36.5054, 2.04151, -48.7863, 48.8054, 2.04151, -19.6863, 48.8054, 2.04151, -27.1863, 36.5054, 2.04151, -48.7863, 24.5054, 2.04151, -48.7863, 0.205357, 2.04151, 7.01371, 2.00536, 2.04151, 7.61372, 48.8054, 2.04151, -4.98629, 48.8054, 2.04151, -12.4863, 12.2054, 2.04151, -48.7863, 0.205357, 2.04151, -48.7863, 48.8054, 2.04151, -19.6863, 24.5054, 2.04151, -48.7863, 18.2054, 2.04151, -48.7863, 3.50536, 2.04151, 9.71371, 48.8054, 2.04151, 9.71371, 48.8054, 2.04151, 2.21371, 48.8054, 2.04151, -19.6863, 18.2054, 2.04151, -48.7863, 12.2054, 2.04151, -48.7863, 48.8054, 2.04151, -12.4863, 2.00536, 7.84151, -7.38629, 2.00536, 10.8415, -16.6863, 1.40536, 9.84151, -13.6863, -1.89464, 7.84151, -7.38629, 2.00536, 7.84151, -7.38629, 1.40536, 9.84151, -13.6863, -1.89464, 10.0415, -13.9863, 42.5054, 2.04151, 49.9137, 48.8054, 2.04151, 49.9137, 48.8054, 2.04151, 39.7137, 36.5054, 2.04151, 49.9137, 42.5054, 2.04151, 49.9137, 48.8054, 2.04151, 39.7137, 48.8054, 2.04151, 29.8137, 3.50536, 2.04151, 9.71371, 1.40536, 2.04151, 12.7137, 12.5054, 2.04151, 49.9137, 24.5054, 2.04151, 49.9137, 48.8054, 2.04151, 19.6137, 48.8054, 2.04151, 9.71371, 24.5054, 2.04151, 49.9137, 36.5054, 2.04151, 49.9137, 48.8054, 2.04151, 29.8137, 48.8054, 2.04151, 19.6137, 1.40536, 2.04151, 12.7137, 0.50536, 2.04151, 13.0137, 0.50536, 2.04151, 49.9137, 12.5054, 2.04151, 49.9137, -49.8946, 2.04151, 40.0137, -49.8946, 2.04151, 49.9137, -43.5946, 2.04151, 49.9137, -49.8946, 2.04151, 40.0137, -43.5946, 2.04151, 49.9137, -37.2946, 2.04151, 49.9137, -49.8946, 2.04151, 40.0137, -37.2946, 2.04151, 49.9137, -30.9946, 2.04151, 49.9137, -49.8946, 2.04151, 40.0137, -30.9946, 2.04151, 49.9137, -24.6946, 2.04151, 49.9137, -49.8946, 2.04151, 30.1137, -49.8946, 2.04151, 40.0137, -24.6946, 2.04151, 49.9137, -18.3946, 2.04151, 49.9137, -12.0946, 2.04151, 49.9137, -5.79464, 2.04151, 49.9137, -2.19464, 2.04151, 11.5137, -2.49464, 2.04151, 10.3137, -49.8946, 2.04151, 10.3137, -49.8946, 2.04151, 20.2137, -5.79464, 2.04151, 49.9137, 0.50536, 2.04151, 49.9137, 0.50536, 2.04151, 13.0137, -2.19464, 2.04151, 11.5137, -49.8946, 2.04151, 30.1137, -18.3946, 2.04151, 49.9137, -12.0946, 2.04151, 49.9137, -49.8946, 2.04151, 20.2137 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 6, 9, 7 ), PoolIntArray( 7, 9, 8 ), PoolIntArray( 11, 10, 12 ), PoolIntArray( 12, 10, 14 ), PoolIntArray( 12, 14, 13 ), PoolIntArray( 15, 18, 16 ), PoolIntArray( 16, 18, 17 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 24, 23, 25 ), PoolIntArray( 25, 23, 26 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 33 ), PoolIntArray( 36, 35, 37 ), PoolIntArray( 37, 35, 34 ), PoolIntArray( 40, 39, 38 ), PoolIntArray( 42, 41, 43 ), PoolIntArray( 43, 41, 44 ), PoolIntArray( 46, 45, 47 ), PoolIntArray( 47, 45, 48 ), PoolIntArray( 51, 50, 49 ), PoolIntArray( 53, 52, 54 ), PoolIntArray( 54, 52, 55 ), PoolIntArray( 57, 56, 58 ), PoolIntArray( 58, 56, 59 ), PoolIntArray( 59, 56, 60 ), PoolIntArray( 60, 56, 61 ), PoolIntArray( 64, 63, 62 ), PoolIntArray( 67, 66, 65 ), PoolIntArray( 69, 68, 70 ), PoolIntArray( 70, 68, 71 ), PoolIntArray( 74, 73, 72 ), PoolIntArray( 78, 77, 75 ), PoolIntArray( 75, 77, 76 ), PoolIntArray( 81, 80, 79 ), PoolIntArray( 83, 82, 84 ), PoolIntArray( 84, 82, 85 ), PoolIntArray( 87, 86, 88 ), PoolIntArray( 88, 86, 89 ), PoolIntArray( 89, 86, 90 ), PoolIntArray( 90, 86, 91 ), PoolIntArray( 94, 93, 95 ), PoolIntArray( 95, 93, 92 ), PoolIntArray( 97, 96, 98 ), PoolIntArray( 98, 96, 99 ), PoolIntArray( 102, 101, 100 ), PoolIntArray( 105, 104, 103 ), PoolIntArray( 108, 107, 106 ), PoolIntArray( 111, 110, 109 ), PoolIntArray( 114, 113, 115 ), PoolIntArray( 115, 113, 112 ), PoolIntArray( 118, 117, 119 ), PoolIntArray( 119, 117, 116 ), PoolIntArray( 119, 116, 121 ), PoolIntArray( 119, 121, 120 ), PoolIntArray( 124, 123, 125 ), PoolIntArray( 125, 123, 122 ), PoolIntArray( 127, 126, 128 ), PoolIntArray( 128, 126, 129 ) ]
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="PhysicsMaterial" id=2]
 
-[sub_resource type="CapsuleMesh" id=3]
+[sub_resource type="BoxShape" id=3]
 
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.14902, 1, 0, 1 )
-metallic = 0.16
+[sub_resource type="CubeMesh" id=4]
 
-[sub_resource type="CylinderMesh" id=5]
+[sub_resource type="PhysicsMaterial" id=5]
+friction = 0.1
 
 [sub_resource type="BoxShape" id=6]
 
 [sub_resource type="CubeMesh" id=7]
 
-[sub_resource type="PhysicsMaterial" id=8]
-friction = 0.1
+[sub_resource type="CapsuleShape" id=8]
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="CapsuleMesh" id=9]
 
-[sub_resource type="CubeMesh" id=10]
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.14902, 1, 0, 1 )
+metallic = 0.16
 
-[sub_resource type="PrismMesh" id=11]
-
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="CylinderMesh" id=11]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 4 )
 
-[node name="TimedLog" type="Timer" parent="."]
-process_mode = 0
-wait_time = 0.1
-one_shot = true
-script = ExtResource( 7 )
-__meta__ = {
-"_editor_description_": "Helper to delat printing frequency. Awkward but:
+[node name="Navigation" type="Navigation" parent="."]
 
-$\"/root/Main/TimedLog\".print(\"value\")"
-}
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 1 )
 
-[node name="Level" type="Spatial" parent="."]
+[node name="Level" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 
-[node name="Floor" parent="Level" instance=ExtResource( 3 )]
+[node name="Floor" parent="Navigation/NavigationMeshInstance/Level" instance=ExtResource( 3 )]
 transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, -0.545387, 1.55704, 0.371826 )
 collision_layer = 2148007937
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 2 )
+
+[node name="Rock" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+
+[node name="Rock2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6511, 3.82678, -23.6624 )
+
+[node name="Rock3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2041, 3.82678, 0.699703 )
+
+[node name="Rock4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7968, 3.82678, -33.2026 )
+
+[node name="StaticBody2" type="RigidBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126896, 12.1788, -15.3617 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody2"]
+shape = SubResource( 3 )
+
+[node name="CSGMesh" type="CSGMesh" parent="Navigation/NavigationMeshInstance/StaticBody2"]
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 2.45163, 0, 0, 0, 0.198799, -1.62467, 0, 0.0633798, 5.096, 0, 8.76675, -12.014 )
+physics_material_override = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="CSGMesh" type="CSGMesh" parent="Navigation/NavigationMeshInstance/StaticBody"]
+mesh = SubResource( 7 )
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
 playerCamPath = NodePath("../Player/GimbalCamera/Camera")
@@ -62,6 +88,7 @@ cam1Path = NodePath("../../Main/Camera")
 
 [node name="Player" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+collision_layer = 17
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -73,19 +100,19 @@ meshPath = NodePath("../mesh")
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="mesh" type="Spatial" parent="Player"]
 
 [node name="body" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 3 )
-material = SubResource( 4 )
+mesh = SubResource( 9 )
+material = SubResource( 10 )
 
 [node name="front-indicator" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 0.25, 0, 0, 0, -1.62921e-07, -0.25, 0, 1, -4.07302e-08, 0, 1, -1 )
-mesh = SubResource( 5 )
-material = SubResource( 4 )
+mesh = SubResource( 11 )
+material = SubResource( 10 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -99,67 +126,3 @@ transform = Transform( -2.18557e-08, -0.866025, 0.5, -3.78552e-08, 0.5, 0.866025
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.117518, 0.586668, -0.801255, -0.00601571, 0.807252, 0.590176, 0.993052, -0.0645365, 0.0983963, -54.3013, 23.3841, -2.59226 )
-
-[node name="StaticBody2" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126896, 12.1788, -15.3617 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-shape = SubResource( 6 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody2"]
-mesh = SubResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 2.45163, 0, 0, 0, 0.198799, -1.62467, 0, 0.0633798, 5.096, 0, 8.76675, -12.014 )
-physics_material_override = SubResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 9 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody"]
-mesh = SubResource( 10 )
-
-[node name="Rock" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82678, 9.89332 )
-
-[node name="CSGMesh" type="CSGMesh" parent="Rock"]
-transform = Transform( 0.482913, -0.672677, -0.560626, 0.439016, 0.739936, -0.509665, 0.757668, 0, 0.652641, -0.657505, -0.507156, 0 )
-mesh = SubResource( 11 )
-material = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CSGMesh2" type="CSGMesh" parent="Rock"]
-transform = Transform( 0.901304, 0, -0.433187, 0, 1, 0, 0.433187, 0, 0.901304, 0.614706, 0, -0.696188 )
-mesh = SubResource( 11 )
-material = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CSGMesh4" type="CSGMesh" parent="Rock"]
-transform = Transform( 0.68829, 0.586758, -0.426581, -0.189826, 0.713222, 0.674744, 0.700159, -0.383443, 0.602286, 0.800263, 0, 0.659345 )
-mesh = SubResource( 11 )
-material = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CSGMesh3" type="CSGMesh" parent="Rock"]
-transform = Transform( 0.687649, 0.154401, -0.709435, -0.21908, 0.975707, 0, 0.692201, 0.155423, 0.70477, 1.51461, 0, 0 )
-mesh = SubResource( 11 )
-material = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Rock"]
-transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, 0.425354, 0, 0.0714817 )
-shape = SubResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "Bar",
+"language": "GDScript",
+"path": "res://src/Bar/Bar.gd"
+}, {
 "base": "Reference",
 "class": "Easing",
 "language": "GDScript",
@@ -24,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-easing-functions-f6c41cf14c1bed92ed98a2bcd750c897e696ff71/EasingFunctions_V3.gd"
 }, {
-"base": "Reference",
-"class": "Global",
-"language": "GDScript",
-"path": "res://src/Global.gd"
-}, {
 "base": "Node",
 "class": "Movement",
 "language": "GDScript",
@@ -38,14 +38,20 @@ _global_script_classes=[ {
 "class": "RNGTools",
 "language": "GDScript",
 "path": "res://addons/rngtools/RNGTools.gd"
+}, {
+"base": "Node",
+"class": "Resources",
+"language": "GDScript",
+"path": "res://src/Resources.gd"
 } ]
 _global_script_class_icons={
+"Bar": "",
 "Easing": "",
 "EasingV2": "",
 "EasingV3": "",
-"Global": "",
 "Movement": "",
-"RNGTools": ""
+"RNGTools": "",
+"Resources": ""
 }
 
 [application]
@@ -53,6 +59,11 @@ _global_script_class_icons={
 config/name="Jam"
 run/main_scene="res://FirstScene.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://src/Global.gd"
+TimedLog="*res://src/util/TimedLog.gd"
 
 [editor_plugins]
 

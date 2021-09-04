@@ -7,15 +7,22 @@ export (NodePath) var cam1Path
 var playerCam: Camera
 var cam1: Camera
 
-onready var playerCamBtn = get_node("Menu/Tab/CameraBox/Player Camera")
-onready var cam1Btn = get_node("Menu/Tab/CameraBox/Camera1")
+onready var playerCamBtn = get_node("Menu/CamTab/CameraBox/Player Camera")
+onready var cam1Btn = get_node("Menu/CamTab/CameraBox/Camera1")
+
+var viewedIntro = true
 
 func _ready():
 	view = get_viewport();
 	playerCam = get_node(playerCamPath)
 	cam1 = get_node(cam1Path)
 	setButtonState()
-	$"./IntroDialog".popup()
+	# print(viewedIntro)
+
+func _process(_delta):
+	if !viewedIntro:
+		viewedIntro = true
+		$"./IntroDialog".popup()
 
 func setButtonState():
 	playerCamBtn.pressed = view.get_camera() == playerCam

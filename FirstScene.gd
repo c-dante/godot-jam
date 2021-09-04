@@ -5,6 +5,7 @@ func _ready():
 	pass
 
 func demoSurfaceMesh():
+	spawnRocks()
 	# var vertices = PoolVector3Array()
 	# vertices.push_back(Vector3(0, 10, 0))
 	# vertices.push_back(Vector3(10, 0, 0))
@@ -41,3 +42,13 @@ func demoSurfaceMesh():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func spawnRocks():
+	var spawnArea = $"Level/Floor"
+	# print(spawnArea.)
+	for i in range(10):
+		print(i)
+
+func _on_Area_body_entered(body: Node):
+	print("ENTER GLOBAL", body)

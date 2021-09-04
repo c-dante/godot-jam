@@ -3,13 +3,17 @@ const Global = preload("res://src/Global.gd")
 
 onready var view = get_viewport()
 
-var ray_length = 1000
-export (NodePath) var test
-func _ready():
-	print(Global.test())
+export (NodePath) var meshPath
 
-func _physics_process(delta):
+var mesh: Spatial
+var plane: Plane = Plane(Vector3.UP, 0)
+
+func _ready():
+	mesh = get_node(meshPath)
+
+func _physics_process(_delta):
 	var camera = view.get_camera()
+	plane.d = node.transform.origin.y
 
 	# Handle camera based movement
 	var cameraTransform = camera.get_global_transform()
@@ -25,8 +29,8 @@ func _physics_process(delta):
 	# Player rotation to mouse target
 	var mouse = get_viewport().get_mouse_position()
 	var from = camera.project_ray_origin(mouse)
-	var to = from + camera.project_ray_normal(mouse) * ray_length
-	var space_state = node.get_world().direct_space_state
-	var intersections = space_state.intersect_ray(from, to, [], 1 << 19)
-	$"/root/Main/TimedLog".print(intersections)
+	var facing = plane.intersects_ray(from, camera.project_ray_normal(mouse))
 
+	# Set the position's y to the player's y
+	facing.y = mesh.global_transform.origin.y
+	mesh.look_at(facing, Vector3.UP)

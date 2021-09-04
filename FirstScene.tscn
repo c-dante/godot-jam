@@ -1,12 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Ball.gd" type="Script" id=2]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/InputMovement.gd" type="Script" id=5]
 [ext_resource path="res://src/ui/ui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/util/TimedLog.gd" type="Script" id=7]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.14902, 1, 0, 1 )
+metallic = 0.16
+
+[sub_resource type="CylinderMesh" id=4]
 
 [node name="Main" type="Spatial"]
 
@@ -29,23 +38,41 @@ script = ExtResource( 2 )
 transform = Transform( 19.0236, 0, 0, 0, 1.03084, 0, 0, 0, 20.5937, 0, 0, 0 )
 collision_layer = 2148007937
 
-[node name="KinematicBody" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70083, 3.01115, 0 )
-script = null
-
-[node name="Controls" type="Node" parent="KinematicBody"]
-script = ExtResource( 5 )
-test = NodePath("../../../Main/TimedLog")
-
-[node name="GimbalCamera" type="Spatial" parent="KinematicBody"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 11, 0 )
-
-[node name="Camera" type="Camera" parent="KinematicBody/GimbalCamera"]
-transform = Transform( -2.18557e-08, -0.866025, 0.5, -3.78552e-08, 0.5, 0.866025, -1, -3.55271e-15, -4.37114e-08, 9.54227, 7.78057, 0 )
-
 [node name="UI" parent="." instance=ExtResource( 6 )]
 playerCamPath = NodePath("../../Main/KinematicBody/GimbalCamera/Camera")
 cam1Path = NodePath("../../Main/Camera")
 
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="Controls" type="Node" parent="Player"]
+script = ExtResource( 5 )
+meshPath = NodePath("../mesh")
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="mesh" type="Spatial" parent="Player"]
+
+[node name="body" type="CSGMesh" parent="Player/mesh"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 2 )
+material = SubResource( 3 )
+
+[node name="front-indicator" type="CSGMesh" parent="Player/mesh"]
+transform = Transform( 0.25, 0, 0, 0, -1.62921e-07, -0.25, 0, 1, -4.07302e-08, 0, 1, -1 )
+mesh = SubResource( 4 )
+material = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="GimbalCamera" type="Spatial" parent="Player"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 10, 0 )
+
+[node name="Camera" type="Camera" parent="Player/GimbalCamera"]
+transform = Transform( -2.18557e-08, -0.866025, 0.5, -3.78552e-08, 0.5, 0.866025, -1, -3.55271e-15, -4.37114e-08, 9.54227, 7.78057, 0 )
+
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.0917683, -0.616427, 0.782046, 0.0763278, 0.778695, 0.622742, -0.992851, 0.11684, -0.024409, 12.8223, 10.0136, 0.468596 )
+transform = Transform( -0.981794, -0.156289, 0.107958, 0.0987177, 0.0657456, 0.992941, -0.162283, 0.985521, -0.0491201, 4.05965, 52.521, -2.59226 )

@@ -15,6 +15,7 @@ func _ready():
 	playerCam = get_node(playerCamPath)
 	cam1 = get_node(cam1Path)
 	setButtonState()
+	$"./IntroDialog".popup()
 
 func setButtonState():
 	playerCamBtn.pressed = view.get_camera() == playerCam

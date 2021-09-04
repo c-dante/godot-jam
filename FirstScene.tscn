@@ -8,32 +8,32 @@
 [ext_resource path="res://src/ui/ui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/util/TimedLog.gd" type="Script" id=7]
 
-[sub_resource type="PhysicsMaterial" id=5]
+[sub_resource type="PhysicsMaterial" id=1]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape" id=2]
 
-[sub_resource type="CapsuleMesh" id=2]
+[sub_resource type="CapsuleMesh" id=3]
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.14902, 1, 0, 1 )
 metallic = 0.16
 
-[sub_resource type="CylinderMesh" id=4]
-
-[sub_resource type="BoxShape" id=11]
-
-[sub_resource type="CubeMesh" id=12]
-
-[sub_resource type="PhysicsMaterial" id=8]
-friction = 0.1
+[sub_resource type="CylinderMesh" id=5]
 
 [sub_resource type="BoxShape" id=6]
 
 [sub_resource type="CubeMesh" id=7]
 
-[sub_resource type="PrismMesh" id=13]
+[sub_resource type="PhysicsMaterial" id=8]
+friction = 0.1
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="CubeMesh" id=10]
+
+[sub_resource type="PrismMesh" id=11]
+
+[sub_resource type="BoxShape" id=12]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -54,7 +54,7 @@ $\"/root/Main/TimedLog\".print(\"value\")"
 [node name="Floor" parent="Level" instance=ExtResource( 3 )]
 transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, -0.545387, 1.55704, 0.371826 )
 collision_layer = 2148007937
-physics_material_override = SubResource( 5 )
+physics_material_override = SubResource( 1 )
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
 playerCamPath = NodePath("../Player/GimbalCamera/Camera")
@@ -73,19 +73,19 @@ meshPath = NodePath("../mesh")
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="mesh" type="Spatial" parent="Player"]
 
 [node name="body" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 2 )
-material = SubResource( 3 )
+mesh = SubResource( 3 )
+material = SubResource( 4 )
 
 [node name="front-indicator" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 0.25, 0, 0, 0, -1.62921e-07, -0.25, 0, 1, -4.07302e-08, 0, 1, -1 )
-mesh = SubResource( 4 )
-material = SubResource( 3 )
+mesh = SubResource( 5 )
+material = SubResource( 4 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -104,10 +104,10 @@ transform = Transform( 0.117518, 0.586668, -0.801255, -0.00601571, 0.807252, 0.5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126896, 12.1788, -15.3617 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-shape = SubResource( 11 )
+shape = SubResource( 6 )
 
 [node name="CSGMesh" type="CSGMesh" parent="StaticBody2"]
-mesh = SubResource( 12 )
+mesh = SubResource( 7 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 2.45163, 0, 0, 0, 0.198799, -1.62467, 0, 0.0633798, 5.096, 0, 8.76675, -12.014 )
@@ -117,17 +117,17 @@ __meta__ = {
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="CSGMesh" type="CSGMesh" parent="StaticBody"]
-mesh = SubResource( 7 )
+mesh = SubResource( 10 )
 
 [node name="Rock" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82678, 9.89332 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Rock"]
 transform = Transform( 0.482913, -0.672677, -0.560626, 0.439016, 0.739936, -0.509665, 0.757668, 0, 0.652641, -0.657505, -0.507156, 0 )
-mesh = SubResource( 13 )
+mesh = SubResource( 11 )
 material = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -135,7 +135,7 @@ __meta__ = {
 
 [node name="CSGMesh2" type="CSGMesh" parent="Rock"]
 transform = Transform( 0.901304, 0, -0.433187, 0, 1, 0, 0.433187, 0, 0.901304, 0.614706, 0, -0.696188 )
-mesh = SubResource( 13 )
+mesh = SubResource( 11 )
 material = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -143,7 +143,7 @@ __meta__ = {
 
 [node name="CSGMesh4" type="CSGMesh" parent="Rock"]
 transform = Transform( 0.68829, 0.586758, -0.426581, -0.189826, 0.713222, 0.674744, 0.700159, -0.383443, 0.602286, 0.800263, 0, 0.659345 )
-mesh = SubResource( 13 )
+mesh = SubResource( 11 )
 material = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -151,7 +151,7 @@ __meta__ = {
 
 [node name="CSGMesh3" type="CSGMesh" parent="Rock"]
 transform = Transform( 0.687649, 0.154401, -0.709435, -0.21908, 0.975707, 0, 0.692201, 0.155423, 0.70477, 1.51461, 0, 0 )
-mesh = SubResource( 13 )
+mesh = SubResource( 11 )
 material = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -159,7 +159,7 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Rock"]
 transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, 0.425354, 0, 0.0714817 )
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }

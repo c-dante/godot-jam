@@ -92,6 +92,28 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="IntroDialog" type="ConfirmationDialog" parent="."]
+visible = true
+margin_left = 82.1821
+margin_top = 119.523
+margin_right = 434.182
+margin_bottom = 323.523
+rect_scale = Vector2( 0.987951, 1.01782 )
+popup_exclusive = true
+window_title = "Woah it's a thing"
+dialog_text = "Hey so this is a game thing maybe.
+
+WASD to move
+Q, E to rotate the view
+Shift to speed up
+Mouse to aim
+
+Be sad if you're on mobile (sorry) or want to plug in a gamepad (again, sorry)"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
 [connection signal="pressed" from="Menu/Tab/CameraBox/Player Camera" to="." method="_on_Player_Camera_pressed"]
 [connection signal="pressed" from="Menu/Tab/CameraBox/Camera1" to="." method="_on_Camera1_pressed"]

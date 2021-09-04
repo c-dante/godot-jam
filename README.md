@@ -2,6 +2,7 @@ A game jam project! [Stop waiting for godot](https://itch.io/jam/stop-waiting-fo
 
 ## Controls
 - WASD to move
+- Q, E to rotate the player cam
 - Mouse to aim
 - Shift to sprint
 - ...

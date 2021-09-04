@@ -1,0 +1,84 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Easing",
+"language": "GDScript",
+"path": "res://addons/godot-easing-functions-f6c41cf14c1bed92ed98a2bcd750c897e696ff71/EasingFunctions.gd"
+}, {
+"base": "Reference",
+"class": "EasingV2",
+"language": "GDScript",
+"path": "res://addons/godot-easing-functions-f6c41cf14c1bed92ed98a2bcd750c897e696ff71/EasingFunctions_V2.gd"
+}, {
+"base": "Reference",
+"class": "EasingV3",
+"language": "GDScript",
+"path": "res://addons/godot-easing-functions-f6c41cf14c1bed92ed98a2bcd750c897e696ff71/EasingFunctions_V3.gd"
+}, {
+"base": "Node",
+"class": "Movement",
+"language": "GDScript",
+"path": "res://src/Movement.gd"
+}, {
+"base": "Reference",
+"class": "RNGTools",
+"language": "GDScript",
+"path": "res://addons/rngtools/RNGTools.gd"
+} ]
+_global_script_class_icons={
+"Easing": "",
+"EasingV2": "",
+"EasingV3": "",
+"Movement": "",
+"RNGTools": ""
+}
+
+[application]
+
+config/name="Jam"
+run/main_scene="res://FirstScene.tscn"
+config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "orbit_camera" )
+
+[input]
+
+move_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

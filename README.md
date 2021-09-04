@@ -1,4 +1,10 @@
-A game jam project!
+A game jam project! [Stop waiting for godot](https://itch.io/jam/stop-waiting-for-godot)
+
+## Controls
+- WASD to move
+- Mouse to aim
+- Shift to sprint
+- ...
 
 Some notes and a todo and resources for now:
 

@@ -4,13 +4,11 @@ const Global = preload("res://src/Global.gd")
 onready var view = get_viewport()
 
 export (NodePath) var meshPath
+onready var mesh: Spatial = get_node(meshPath)
 
-var mesh: Spatial
+
 var plane: Plane = Plane(Vector3.UP, 0)
 var baseMax: float = movementSpeed
-
-func _ready():
-	mesh = get_node(meshPath)
 
 func _physics_process(_delta):
 	var camera = view.get_camera()

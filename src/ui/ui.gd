@@ -7,8 +7,8 @@ export (NodePath) var cam1Path
 var playerCam: Camera
 var cam1: Camera
 
-onready var playerCamBtn = get_node("Menu/CamTab/CameraBox/Player Camera")
-onready var cam1Btn = get_node("Menu/CamTab/CameraBox/Camera1")
+onready var playerCamBtn = get_node("Menu/Cams/CameraBox/Player Camera")
+onready var cam1Btn = get_node("Menu/Cams/CameraBox/Camera1")
 
 var viewedIntro = true
 

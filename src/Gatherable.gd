@@ -60,13 +60,14 @@ func _physics_process(delta):
 	# Distribute resources
 	remaining -= adjDelta
 
-	# Consume a cycle of resource
+	# Consume a cycle of resource and reset values
 	if remaining <= 0:
 		remaining = gatherTimeSec
 
 		# Allocate based on consumption porition
 		for name in gatherCycle:
 			var portion = gatherCycle[name] / gatherTimeSec
+			gatherCycle[name] = 0
 			if !Resources.Inventory.has(name):
 				Resources.Inventory[name] = {}
 

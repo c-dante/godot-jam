@@ -50,6 +50,7 @@ collision_layer = 2148007937
 physics_material_override = SubResource( 2 )
 
 [node name="Rock" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82678, 4.61807 )
 
 [node name="Rock2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6511, 3.82678, -23.6624 )

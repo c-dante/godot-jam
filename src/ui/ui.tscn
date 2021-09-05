@@ -178,20 +178,21 @@ __meta__ = {
 }
 
 [node name="dante" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-margin_right = 335.0
+anchor_right = 1.0
+margin_right = -218.0
 margin_bottom = 22.0
 text = "Game by c-dante"
 
 [node name="iknowkingrabbit" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-margin_top = 26.0
-margin_right = 335.0
-margin_bottom = 48.0
+anchor_right = 1.0
+margin_right = -157.0
+margin_bottom = 22.0
 text = "Icons by @iknowkingrabbit"
 
 [node name="godot" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-margin_top = 52.0
-margin_right = 335.0
-margin_bottom = 74.0
+anchor_right = 1.0
+margin_right = -268.0
+margin_bottom = 22.0
 text = "Godot <3"
 align = 1
 

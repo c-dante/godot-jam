@@ -1,8 +1,8 @@
 extends GridContainer
 
 const Res = preload("res://src/Resources.gd")
-const Events = preload("res://src/Events.gd")
 const TooltipButton = preload("res://src/ui/TooltipButton.tscn")
+const Miner = preload("res://src/Miner.tscn")
 
 
 # Declare member variables here. Examples:
@@ -20,4 +20,33 @@ func _ready():
 			buildBtn.tooltip += "- %d %s" % [item["cost"][res], Resources.resourceString(res)]
 		buildBtn.text = Resources.itemString(itemType)
 		buildBtn.icon = load(item["icon"])
+		buildBtn.meta = itemType
 		add_child(buildBtn)
+		if buildBtn.connect("on_press", self, "_on_btn_press") != OK:
+			push_error("Could not connect press to build button")
+
+func _on_btn_press(btn):
+	var player = $"/root/Main/Player"
+	var purchase_id = player.get_instance_id()
+	var itemType = btn.meta
+	var cost = Resources.Items[itemType]["cost"]
+	if Resources.Inventory.has(purchase_id):
+		var inv = Resources.Inventory[purchase_id]
+
+		for mat in cost:
+			if !inv.has(mat) || inv[mat] < cost[mat]:
+				return
+
+		for mat in cost:
+			inv[mat] -= cost[mat]
+
+		match itemType:
+			Res.ItemType.Miner:
+				var miner = Miner.instance()
+				miner.owner = miner
+				miner.owner_id = purchase_id
+				miner.transform.origin = player.transform.origin
+				$"/root/Main/spawn".add_child(miner)
+				return
+			var other:
+				print("Cannot puchase: " + Resources.itemString(other))

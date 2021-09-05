@@ -71,6 +71,8 @@ margin_right = 39.0
 playerCamPath = NodePath("../Player/GimbalCamera/Camera")
 cam1Path = NodePath("../../Main/Camera")
 
+[node name="spawn" type="Spatial" parent="."]
+
 [node name="Player" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
 collision_layer = 17

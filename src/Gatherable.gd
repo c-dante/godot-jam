@@ -50,12 +50,13 @@ func _physics_process(delta):
 		return
 
 	# Error rate
-	var adjDelta = delta if delta < remaining else remaining
+	var minedDelta = delta * miners
+	var adjDelta = minedDelta if minedDelta < remaining else remaining
 
 	# Allocate mining ownership
 	for name in gathering:
 		if gathering[name]:
-			gatherCycle[name] += adjDelta
+			gatherCycle[name] += adjDelta / miners
 
 	# Distribute resources
 	remaining -= adjDelta
@@ -68,11 +69,12 @@ func _physics_process(delta):
 		for name in gatherCycle:
 			var portion = gatherCycle[name] / gatherTimeSec
 			gatherCycle[name] = 0
-
+			var miner = instance_from_id(name)
+			var contribute_id = miner.owner_id if miner.get("owner_id") != null else name
 			for produceIdx in range(produces.size()):
 				var resource = produces[produceIdx]
 				var volume = producesVolume[produceIdx]
-				Global.gatherResource(name, resource, portion * volume)
+				Global.gatherResource(contribute_id, resource, portion * volume)
 
 	# Update bar
 	bar.progress = remaining / gatherTimeSec;

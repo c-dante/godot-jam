@@ -52,9 +52,6 @@ func spawnRocks():
 	for i in range(10):
 		print(i)
 
-func _on_Area_body_entered(body: Node):
-	print("ENTER GLOBAL", body)
-
 func resource_grant():
 	Global.gatherResource($Player.get_instance_id(), Res.ResourceType.Stone, 1000)
 	Global.gatherResource($Player.get_instance_id(), Res.ResourceType.Wood, 1000)

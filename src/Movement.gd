@@ -2,22 +2,31 @@ extends Node
 class_name Movement
 
 export (NodePath) var nodePath = ""
+
+# Agument this to speed up
 export (float) var movementSpeed = 15
+
+# How fast the movemnet speed is applied
 export (float) var acceleration = 3
+
+# Skidding out
 export (float) var deacceleration = 5
+
+# Max jump height
 export (float) var maxJump = 19
-export (float) var rotationSpeed = 3
-export (float) var maxZoom = 0.5
-export (float) var minZoom = 1.5
-export (float) var zoomSpeed = 2
+
+# Become floaty
 export (float) var gravity = -10
 
+# Set this to move in a direction
+var direction = Vector3()
+
+# Internals
 var node: KinematicBody
 var accelerate = acceleration
 var movement = Vector3()
 var speed = Vector3()
 var currentVerticalSpeed = Vector3()
-var direction = Vector3()
 var lastDirection = Vector3()
 var jumpAcceleration = 3
 var isAirborne = false

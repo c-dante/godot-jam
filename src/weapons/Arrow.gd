@@ -21,10 +21,14 @@ func _on_timeout():
 
 func _on_arrow_body_entered(body):
 	if body.get_instance_id() != owner_id:
-		print("Arrow struck", body, body.get_path())
+		# Apply knockback
 		var as_kine = body as KinematicBody
 		if as_kine != null:
 			var xform = global_transform.basis.z
 			as_kine.move_and_slide(knockback * xform)
-			print(as_kine)
+
+		if body.is_in_group(Global.GROUP.KILLABLE):
+			print("Deal damage...")
+
+		# Remove self
 		queue_free()

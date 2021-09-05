@@ -14,7 +14,6 @@ var owned_items = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(mesh, parent)
 	owner_id = parent.get_instance_id()
 	if Events.connect("on_purchase_attempt", self, "on_purchase_attempt") != OK:
 		push_error("Could not attach to purchase event bus")

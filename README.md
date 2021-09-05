@@ -13,6 +13,9 @@ Some notes and a todo and resources for now:
 - Twinstick!!
 - The demo I have is there -- great starting place and a couple nice addons
 
+## BUGS
+- Spawner sometimes picks bad spots?
+
 ### Work / TODO
 - **DONE** Basic twinstick impl going
   - Movement of PC, WASD + mouse for now, controllers later
@@ -21,11 +24,11 @@ Some notes and a todo and resources for now:
   - Get a couple different resource types and passively harvest when nearby
   - **DONE**: We have rocks and trees
 - Building things?
-  - Make a miner
-  - Make miners mine
+  - **DONE** Make a miner
 - Enemies / AI
-  - Something to break miners -- and you
+  - **DONE** Something to break miners -- and you
 - Firing a weapon (build it first!)
+  - **DONE**
 
 
 ## Resources

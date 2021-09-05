@@ -3,14 +3,23 @@ extends Node
 onready var SPAWN = $"/root/Main/spawn"
 
 const GROUP = {
+	# Group of things that can be "killed", node must be named the group name
+	"KILLABLE": "Killable",
+	# The player and player owned things
 	"PLAYER": "player",
+	# All the arrows / projectiles
 	"ARROW": "arrow",
+	# All resources on the map
 	"RESOURCE": "resource",
+	# All neutral mob enemies
+	"ENEMY": "Enemy",
 }
 
-static func test():
-	print("Hi")
-	return 10
+var Rng = RandomNumberGenerator.new()
+
+func _ready():
+	Rng.seed = 8675309
+	seed(Rng.seed)
 
 func gatherResource(owner_instance_id: int, resource: int, amount: float):
 	var inv = Resources.Inventory

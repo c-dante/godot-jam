@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://mat/enemy.tres" type="Material" id=1]
+[ext_resource path="res://src/Movement.gd" type="Script" id=2]
+[ext_resource path="res://src/Killable.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="CapsuleMesh" id=2]
+material = ExtResource( 1 )
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="SphereShape" id=4]
+radius = 3.0
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+albedo_color = Color( 1, 0.445313, 0, 0.0980392 )
+
+[node name="Enemy" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.55226, 9.25201, 3.8147e-06 )
+collision_layer = 3
+
+[node name="Killable" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="mesh" type="Spatial" parent="."]
+
+[node name="body" type="MeshInstance" parent="mesh"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="front-indicator2" type="CSGMesh" parent="mesh"]
+transform = Transform( 0.25, 0, 0, 0, -1.62921e-07, -0.25, 0, 1, -4.07302e-08, 0, 1, -1 )
+mesh = SubResource( 3 )
+material = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="attack" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 2147483650
+
+[node name="CollisionShape" type="CollisionShape" parent="attack"]
+shape = SubResource( 4 )
+
+[node name="CSGSphere" type="CSGSphere" parent="attack"]
+radius = 3.0
+material = SubResource( 5 )

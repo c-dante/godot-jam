@@ -5,19 +5,20 @@
 [ext_resource path="res://src/Bar/bar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://mat/tree_bark.tres" type="Material" id=5]
 
-[sub_resource type="CylinderMesh" id=5]
+[sub_resource type="CylinderMesh" id=1]
 top_radius = 0.5
 bottom_radius = 0.5
 height = 5.0
 
-[sub_resource type="PrismMesh" id=6]
+[sub_resource type="PrismMesh" id=2]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.660378, 3.14787, 0.609434 )
 
-[sub_resource type="SphereShape" id=3]
+[sub_resource type="SphereShape" id=4]
 radius = 5.70753
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=5]
 flags_transparent = true
 albedo_color = Color( 0.921569, 0, 1, 0.0588235 )
 
@@ -34,20 +35,21 @@ produces = [ 1 ]
 producesVolume = [ 1.0 ]
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.487866, 0 )
 
 [node name="CSGMesh" type="CSGMesh" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 1 )
 material = ExtResource( 5 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 2 )
 material = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, 0.425354, 0, 0.0714817 )
-shape = SubResource( 2 )
+transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, -0.0200952, 3.2571, 0.0714817 )
+shape = SubResource( 3 )
 
 [node name="bar" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
@@ -59,8 +61,8 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="GatherArea" type="CollisionShape" parent="gather"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="MineArea" type="CSGSphere" parent="gather"]
 radius = 5.75633
-material = SubResource( 4 )
+material = SubResource( 5 )

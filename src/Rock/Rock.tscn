@@ -7,6 +7,7 @@
 [sub_resource type="PrismMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.11502, 1.87323, 1 )
 
 [sub_resource type="SphereShape" id=3]
 radius = 5.70753
@@ -18,7 +19,6 @@ albedo_color = Color( 0.921569, 0, 1, 0.0588235 )
 [node name="Rock" type="StaticBody" groups=[
 "resource",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82678, 9.89332 )
 
 [node name="Gatherable" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -28,32 +28,35 @@ gatherTimeSec = 0.5
 produces = [ 0 ]
 producesVolume = [ 1.0 ]
 
-[node name="CSGMesh" type="CSGMesh" parent="."]
-transform = Transform( 0.482913, -0.672677, -0.560626, 0.439016, 0.739936, -0.509665, 0.757668, 0, 0.652641, -0.657505, -0.507156, 0 )
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 0.482913, -0.672677, -0.560626, 0.439016, 0.739936, -0.509665, 0.757668, 0, 0.652641, -0.657505, 1.49284, 0 )
+
+[node name="CSGMesh" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 2.66483e-08, 1, -1.09791e-08, 0, 2.98023e-08, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
 material = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CSGMesh2" type="CSGMesh" parent="."]
-transform = Transform( 0.901304, 0, -0.433187, 0, 1, 0, 0.433187, 0, 0.901304, 0.614706, 0, -0.696188 )
+[node name="CSGMesh2" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 0.763462, 0.439016, 0.473697, -0.606286, 0.739937, 0.291395, -0.222579, -0.509666, 0.831083, 0.309538, -0.480523, -1.42607 )
 mesh = SubResource( 1 )
 material = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CSGMesh4" type="CSGMesh" parent="."]
-transform = Transform( 0.68829, 0.586758, -0.426581, -0.189826, 0.713222, 0.674744, 0.700159, -0.383443, 0.602286, 0.800263, 0, 0.659345 )
+[node name="CSGMesh4" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 0.779534, 0.305947, 0.546555, -0.603456, 0.133041, 0.786219, 0.167827, -0.942707, 0.288335, 1.42619, -0.605343, -0.645427 )
 mesh = SubResource( 1 )
 material = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CSGMesh3" type="CSGMesh" parent="."]
-transform = Transform( 0.687649, 0.154401, -0.709435, -0.21908, 0.975707, 0, 0.692201, 0.155423, 0.70477, 1.51461, 0, 0 )
+[node name="CSGMesh3" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 0.760352, 0.620672, 0.191386, -0.624671, 0.6181, 0.47722, 0.177902, -0.48241, 0.857689, 1.27159, -1.08587, -1.47622 )
 mesh = SubResource( 1 )
 material = ExtResource( 2 )
 __meta__ = {
@@ -61,14 +64,11 @@ __meta__ = {
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, 0.425354, 0, 0.0714817 )
+transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, 0.425354, 0.943858, 0.0714817 )
 shape = SubResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="bar" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528104, 1.93671, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528104, 3.92563, 0 )
 
 [node name="gather" type="Area" parent="."]
 input_ray_pickable = false

@@ -4,6 +4,7 @@ onready var SPAWN = $"/root/Main/spawn"
 
 const GROUP = {
 	"PLAYER": "player",
+	"ARROW": "arrow",
 	"RESOURCE": "resource",
 }
 

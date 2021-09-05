@@ -33,6 +33,7 @@ func on_purchase_attempt(owner, item, cost):
 		Res.ItemType.Bow:
 			var bow = Bow.new()
 			bow.meshPath = meshPath
+			bow.owner_id = owner_id
 			parent.add_child(bow)
 			owned_items[item] = bow
 

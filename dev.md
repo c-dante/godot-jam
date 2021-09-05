@@ -8,7 +8,7 @@ const Res = preload("res://src/Resources.gd")
 ## Physics / Collisions
 Layer 1 is for all things
 
-Layer 2 is for projections and things that can be fired
+Layer 2 is checked by attacks
 
 Layer 5 is for interactables
 

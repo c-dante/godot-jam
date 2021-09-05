@@ -43,6 +43,7 @@ func _on_btn_press(btn):
 				miner.owner = miner
 				miner.owner_id = purchase_id
 				miner.transform.origin = player.transform.origin
+				miner.add_to_group(Global.GROUP.PLAYER)
 				$"/root/Main/spawn".add_child(miner)
 				return
 			# Defer to event bus

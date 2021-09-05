@@ -10,13 +10,13 @@ params_blend_mode = 1
 albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="SphereShape" id=2]
-radius = 0.377938
+radius = 0.823411
 
 [node name="arrow" type="Area" groups=[
 "arrow",
 ]]
-collision_layer = 2147483650
-collision_mask = 3
+collision_layer = 2147483648
+collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
@@ -61,3 +61,4 @@ material = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.36116 )
 shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_arrow_body_entered"]

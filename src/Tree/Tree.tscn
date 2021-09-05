@@ -50,6 +50,7 @@ transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, 0.425354, 0, 
 shape = SubResource( 2 )
 
 [node name="bar" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
 
 [node name="gather" type="Area" parent="."]
 input_ray_pickable = false

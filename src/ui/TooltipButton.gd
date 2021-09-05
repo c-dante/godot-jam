@@ -1,7 +1,7 @@
 extends Button
 
 export (String, MULTILINE) var tooltip
-export (NodePath) var tooltipPath = "/root/Main/ui/main/ToolTip"
+export (NodePath) var tooltipPath = "/root/Main/ui/ToolTip"
 onready var tooltipNode = get_node(tooltipPath)
 
 func _on_btn_mouse_entered():

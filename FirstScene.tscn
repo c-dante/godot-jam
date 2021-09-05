@@ -16,15 +16,15 @@ geometry/collision_mask = 4293918721
 
 [sub_resource type="PhysicsMaterial" id=2]
 
-[sub_resource type="CapsuleShape" id=8]
+[sub_resource type="CapsuleShape" id=3]
 
-[sub_resource type="CapsuleMesh" id=9]
+[sub_resource type="CapsuleMesh" id=4]
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.14902, 1, 0, 1 )
 metallic = 0.16
 
-[sub_resource type="CylinderMesh" id=11]
+[sub_resource type="CylinderMesh" id=6]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -85,19 +85,19 @@ meshPath = NodePath("../mesh")
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="mesh" type="Spatial" parent="Player"]
 
 [node name="body" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 9 )
-material = SubResource( 10 )
+mesh = SubResource( 4 )
+material = SubResource( 5 )
 
 [node name="front-indicator" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 0.25, 0, 0, 0, -1.62921e-07, -0.25, 0, 1, -4.07302e-08, 0, 1, -1 )
-mesh = SubResource( 11 )
-material = SubResource( 10 )
+mesh = SubResource( 6 )
+material = SubResource( 5 )
 __meta__ = {
 "_editor_description_": ""
 }

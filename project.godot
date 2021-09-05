@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "Movement",
 "language": "GDScript",
 "path": "res://src/Movement.gd"
-}, {
-"base": "Node",
-"class": "Resources",
-"language": "GDScript",
-"path": "res://src/Resources.gd"
 } ]
 _global_script_class_icons={
 "Bar": "",
-"Movement": "",
-"Resources": ""
+"Movement": ""
 }
 
 [application]
@@ -41,6 +35,7 @@ config/icon="res://icon.png"
 Global="*res://src/Global.gd"
 TimedLog="*res://src/util/TimedLog.gd"
 Resources="*res://src/Resources.gd"
+Events="*res://src/Events.gd"
 
 [editor_plugins]
 

@@ -35,3 +35,6 @@ func _on_Player_Camera_pressed():
 func _on_Camera1_pressed():
 	cam1.make_current()
 	setButtonState()
+
+func _on_Miner_pressed():
+	pass

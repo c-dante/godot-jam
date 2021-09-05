@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/TooltipButton.gd" type="Script" id=2]
+
+[node name="btn" type="Button"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
+hint_tooltip = "Build a miner, can harvest resources without you there"
+align = 0
+expand_icon = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="." to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_btn_mouse_exited"]

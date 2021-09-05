@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://test.theme" type="Theme" id=1]
 [ext_resource path="res://src/ui/MenuBtn.gd" type="Script" id=2]
@@ -7,8 +7,12 @@
 [ext_resource path="res://src/ui/LoadBtn.gd" type="Script" id=5]
 [ext_resource path="res://src/ui/SaveBtn.gd" type="Script" id=6]
 [ext_resource path="res://src/ui/Tree.gd" type="Script" id=7]
+[ext_resource path="res://assets/icon/MiscellaneousOriginal 1.png" type="Texture" id=8]
+[ext_resource path="res://src/ui/ToolTip.gd" type="Script" id=9]
+[ext_resource path="res://src/ui/TooltipButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/icon/RangedOriginal 6.png" type="Texture" id=11]
 
-[node name="Control" type="Control"]
+[node name="main" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 4 )
@@ -20,7 +24,9 @@ __meta__ = {
 [node name="MenuBtn" type="ToolButton" parent="."]
 margin_right = 12.0
 margin_bottom = 22.0
+hint_tooltip = "Toggle main menu"
 toggle_mode = true
+pressed = true
 text = "Menu"
 script = ExtResource( 2 )
 __meta__ = {
@@ -31,14 +37,47 @@ targetPath = NodePath("../Menu")
 [node name="Menu" type="TabContainer" parent="."]
 margin_left = 5.0
 margin_top = 29.0
-margin_right = 249.0
-margin_bottom = 240.0
+margin_right = 350.0
+margin_bottom = 250.0
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Build" type="Tabs" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="GridContainer" type="GridContainer" parent="Menu/Build"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Miner" parent="Menu/Build/GridContainer" instance=ExtResource( 10 )]
+text = "miner"
+icon = ExtResource( 8 )
+tooltip = "Mine rocks for you.
+- 20 Rock"
+tooltipPath = NodePath("../../../../ToolTip")
+
+[node name="Gun" parent="Menu/Build/GridContainer" instance=ExtResource( 10 )]
+margin_left = 110.0
+margin_right = 210.0
+text = "bow"
+icon = ExtResource( 11 )
+tooltip = "A weapon to defend yourself
+- 10 Rock"
+tooltipPath = NodePath("../../../../ToolTip")
+
 [node name="Resources" type="Tabs" parent="Menu"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -47,8 +86,8 @@ margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="Tree" type="Tree" parent="Menu/Resources"]
-margin_right = 234.0
-margin_bottom = 173.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 columns = 2
 script = ExtResource( 7 )
 __meta__ = {
@@ -65,8 +104,8 @@ margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="GridContainer" type="GridContainer" parent="Menu/Main"]
-margin_right = 233.0
-margin_bottom = 177.0
+margin_right = 295.0
+margin_bottom = 182.0
 columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -75,6 +114,7 @@ __meta__ = {
 [node name="SaveBtn" type="Button" parent="Menu/Main/GridContainer"]
 margin_right = 41.0
 margin_bottom = 22.0
+disabled = true
 text = "Save"
 script = ExtResource( 6 )
 
@@ -82,6 +122,7 @@ script = ExtResource( 6 )
 margin_left = 51.0
 margin_right = 93.0
 margin_bottom = 22.0
+disabled = true
 text = "Load"
 script = ExtResource( 5 )
 
@@ -99,14 +140,14 @@ __meta__ = {
 }
 
 [node name="CameraBox" type="VBoxContainer" parent="Menu/Cams"]
-margin_right = 121.0
-margin_bottom = 198.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player Camera" type="Button" parent="Menu/Cams/CameraBox"]
-margin_right = 121.0
+margin_right = 335.0
 margin_bottom = 22.0
 rect_pivot_offset = Vector2( 236.825, 76.468 )
 toggle_mode = true
@@ -117,7 +158,7 @@ __meta__ = {
 
 [node name="Camera1" type="Button" parent="Menu/Cams/CameraBox"]
 margin_top = 26.0
-margin_right = 121.0
+margin_right = 335.0
 margin_bottom = 48.0
 rect_pivot_offset = Vector2( 236.825, 76.468 )
 toggle_mode = true
@@ -125,6 +166,48 @@ text = "Camera 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Credits" type="Tabs" parent="Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Credits/ScrollContainer"]
+margin_right = 178.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dante" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
+margin_right = 178.0
+margin_bottom = 22.0
+text = "Game by c-dante"
+
+[node name="iknowkingrabbit" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
+margin_right = 35.0
+margin_bottom = 22.0
+text = "Icons by @iknowkingrabbit"
+
+[node name="godot" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
+margin_right = 35.0
+margin_bottom = 22.0
+text = "Godot <3"
+align = 1
 
 [node name="IntroDialog" type="ConfirmationDialog" parent="."]
 margin_left = 82.1821
@@ -143,6 +226,26 @@ Mouse to aim
 
 Be sad if you're on mobile (sorry) or want to plug in a gamepad (again, sorry)"
 dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolTip" type="Control" parent="."]
+visible = false
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="ToolTip"]
+rect_min_size = Vector2( 100, 0 )
+rect_clip_content = false
+size_flags_horizontal = 8
+size_flags_vertical = 8
+bbcode_enabled = true
+tab_size = 2
+fit_content_height = true
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

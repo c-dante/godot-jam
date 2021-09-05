@@ -85,7 +85,7 @@ shape = SubResource( 6 )
 [node name="CSGMesh" type="CSGMesh" parent="Navigation/NavigationMeshInstance/StaticBody"]
 mesh = SubResource( 7 )
 
-[node name="UI" parent="." instance=ExtResource( 6 )]
+[node name="ui" parent="." instance=ExtResource( 6 )]
 playerCamPath = NodePath("../Player/GimbalCamera/Camera")
 cam1Path = NodePath("../../Main/Camera")
 

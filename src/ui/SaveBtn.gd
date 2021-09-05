@@ -19,4 +19,5 @@ func _on_SaveBtn_pressed():
 	# file.close()
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(get_tree().get_current_scene())
-	ResourceSaver.save("user://test_scene.tscn", packed_scene)
+	if ResourceSaver.save("user://test_scene.tscn", packed_scene) != OK:
+		print("Failed to save!")

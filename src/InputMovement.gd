@@ -5,7 +5,6 @@ onready var view = get_viewport()
 export (NodePath) var meshPath
 onready var mesh: Spatial = get_node(meshPath)
 
-
 var plane: Plane = Plane(Vector3.UP, 0)
 var baseMax: float = movementSpeed
 

@@ -16,14 +16,16 @@ Some notes and a todo and resources for now:
 ### Work / TODO
 - **DONE** Basic twinstick impl going
   - Movement of PC, WASD + mouse for now, controllers later
-  - DONE: WASD move relative to camera, face mouse projected to plane
-- Resource collection
+  - **DONE**: WASD move relative to camera, face mouse projected to plane
+- **DONE** Resource collection
   - Get a couple different resource types and passively harvest when nearby
-  - DONE: We have rocks and trees
-- Firing a weapon
+  - **DONE**: We have rocks and trees
 - Building things?
-  - Need to make things to build
+  - Make a miner
+  - Make miners mine
 - Enemies / AI
+  - Something to break miners -- and you
+- Firing a weapon (build it first!)
 
 
 ## Resources

@@ -14,30 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Bar/Bar.gd"
 }, {
-"base": "Reference",
-"class": "Easing",
-"language": "GDScript",
-"path": "res://addons/godot-easing-functions-f6c41cf14c1bed92ed98a2bcd750c897e696ff71/EasingFunctions.gd"
-}, {
-"base": "Reference",
-"class": "EasingV2",
-"language": "GDScript",
-"path": "res://addons/godot-easing-functions-f6c41cf14c1bed92ed98a2bcd750c897e696ff71/EasingFunctions_V2.gd"
-}, {
-"base": "Reference",
-"class": "EasingV3",
-"language": "GDScript",
-"path": "res://addons/godot-easing-functions-f6c41cf14c1bed92ed98a2bcd750c897e696ff71/EasingFunctions_V3.gd"
-}, {
 "base": "Node",
 "class": "Movement",
 "language": "GDScript",
 "path": "res://src/Movement.gd"
-}, {
-"base": "Object",
-"class": "RNGTools",
-"language": "GDScript",
-"path": "res://addons/rngtools/RNGTools.gd"
 }, {
 "base": "Node",
 "class": "Resources",
@@ -46,11 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bar": "",
-"Easing": "",
-"EasingV2": "",
-"EasingV3": "",
 "Movement": "",
-"RNGTools": "",
 "Resources": ""
 }
 

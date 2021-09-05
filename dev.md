@@ -1,5 +1,10 @@
 # Dev Notes
 
+Access resource enum:
+```js
+const Res = preload("res://src/Resources.gd")
+```
+
 ## Physics / Collisions
 Layer 1 is for all things
 

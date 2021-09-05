@@ -1,5 +1,7 @@
 extends Spatial
 
+const Res = preload("res://src/Resources.gd")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	resource_grant()
@@ -54,5 +56,5 @@ func _on_Area_body_entered(body: Node):
 	print("ENTER GLOBAL", body)
 
 func resource_grant():
-	print($Player)
-	print(Resources)
+	Global.gatherResource($Player.get_instance_id(), Res.ResourceType.Stone, 1000)
+	Global.gatherResource($Player.get_instance_id(), Res.ResourceType.Wood, 1000)

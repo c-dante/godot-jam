@@ -2,7 +2,7 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	resource_grant()
 
 func demoSurfaceMesh():
 	spawnRocks()
@@ -52,3 +52,7 @@ func spawnRocks():
 
 func _on_Area_body_entered(body: Node):
 	print("ENTER GLOBAL", body)
+
+func resource_grant():
+	print($Player)
+	print(Resources)

@@ -68,15 +68,11 @@ func _physics_process(delta):
 		for name in gatherCycle:
 			var portion = gatherCycle[name] / gatherTimeSec
 			gatherCycle[name] = 0
-			if !Resources.Inventory.has(name):
-				Resources.Inventory[name] = {}
 
 			for produceIdx in range(produces.size()):
 				var resource = produces[produceIdx]
 				var volume = producesVolume[produceIdx]
-				if !Resources.Inventory[name].has(resource):
-					Resources.Inventory[name][resource] = 0
-				Resources.Inventory[name][resource] += portion * volume
+				Global.gatherResource(name, resource, portion * volume)
 
 	# Update bar
 	bar.progress = remaining / gatherTimeSec;

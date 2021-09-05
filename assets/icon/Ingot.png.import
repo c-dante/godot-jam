@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RangedOriginal 6.png-9ec42438e19d3345762e9d5146ae60f0.stex"
+path="res://.import/Ingot.png-e6dcc9b918e3c37455e98a7318f4b309.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/RangedOriginal 6.png"
-dest_files=[ "res://.import/RangedOriginal 6.png-9ec42438e19d3345762e9d5146ae60f0.stex" ]
+source_file="res://assets/icon/Ingot.png"
+dest_files=[ "res://.import/Ingot.png-e6dcc9b918e3c37455e98a7318f4b309.stex" ]
 
 [params]
 

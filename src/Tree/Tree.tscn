@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Gatherable.gd" type="Script" id=1]
+[ext_resource path="res://mat/tree_leaf.tres" type="Material" id=3]
+[ext_resource path="res://src/Bar/bar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mat/tree_bark.tres" type="Material" id=5]
+
+[sub_resource type="CylinderMesh" id=5]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 5.0
+
+[sub_resource type="PrismMesh" id=6]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="SphereShape" id=3]
+radius = 5.70753
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 0.921569, 0, 1, 0.0588235 )
+
+[node name="Tree" type="StaticBody" groups=[
+"resource",
+]]
+
+[node name="Gatherable" type="Node" parent="."]
+script = ExtResource( 1 )
+barPath = NodePath("../bar")
+gatheringAreaPath = NodePath("../gather")
+gatherTimeSec = 0.5
+produces = [ 1 ]
+producesVolume = [ 1.0 ]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+
+[node name="CSGMesh" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+mesh = SubResource( 5 )
+material = ExtResource( 5 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+mesh = SubResource( 6 )
+material = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1.67043, 0, 0, 0, 1.10473, 0, 0, 0, 1.4791, 0.425354, 0, 0.0714817 )
+shape = SubResource( 2 )
+
+[node name="bar" parent="." instance=ExtResource( 4 )]
+
+[node name="gather" type="Area" parent="."]
+input_ray_pickable = false
+monitorable = false
+collision_layer = 0
+collision_mask = 16
+
+[node name="GatherArea" type="CollisionShape" parent="gather"]
+shape = SubResource( 3 )
+
+[node name="MineArea" type="CSGSphere" parent="gather"]
+radius = 5.75633
+material = SubResource( 4 )

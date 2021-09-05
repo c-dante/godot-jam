@@ -71,7 +71,7 @@ func _physics_process(delta):
 			if !Resources.Inventory.has(name):
 				Resources.Inventory[name] = {}
 
-			for produceIdx in produces:
+			for produceIdx in range(produces.size()):
 				var resource = produces[produceIdx]
 				var volume = producesVolume[produceIdx]
 				if !Resources.Inventory[name].has(resource):

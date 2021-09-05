@@ -7,10 +7,10 @@
 [ext_resource path="res://src/ui/LoadBtn.gd" type="Script" id=5]
 [ext_resource path="res://src/ui/SaveBtn.gd" type="Script" id=6]
 [ext_resource path="res://src/ui/Tree.gd" type="Script" id=7]
-[ext_resource path="res://assets/icon/MiscellaneousOriginal 1.png" type="Texture" id=8]
+[ext_resource path="res://assets/icon/Pickaxe.png" type="Texture" id=8]
 [ext_resource path="res://src/ui/ToolTip.gd" type="Script" id=9]
 [ext_resource path="res://src/ui/TooltipButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/icon/RangedOriginal 6.png" type="Texture" id=11]
+[ext_resource path="res://assets/icon/Bow.png" type="Texture" id=11]
 
 [node name="main" type="Control"]
 margin_right = 40.0
@@ -27,7 +27,7 @@ margin_bottom = 22.0
 hint_tooltip = "Toggle main menu"
 toggle_mode = true
 pressed = true
-text = "Menu"
+text = "Toggle Menu"
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,6 +40,24 @@ margin_top = 29.0
 margin_right = 350.0
 margin_bottom = 250.0
 tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resources" type="Tabs" parent="Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="Tree" type="Tree" parent="Menu/Resources"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 2
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,24 +93,6 @@ icon = ExtResource( 11 )
 tooltip = "A weapon to defend yourself
 - 10 Rock"
 tooltipPath = NodePath("../../../../ToolTip")
-
-[node name="Resources" type="Tabs" parent="Menu"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 29.0
-margin_right = -5.0
-margin_bottom = -5.0
-
-[node name="Tree" type="Tree" parent="Menu/Resources"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-columns = 2
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Main" type="Tabs" parent="Menu"]
 visible = false
@@ -194,18 +194,20 @@ __meta__ = {
 }
 
 [node name="dante" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-margin_right = 178.0
+margin_right = 335.0
 margin_bottom = 22.0
 text = "Game by c-dante"
 
 [node name="iknowkingrabbit" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-margin_right = 35.0
-margin_bottom = 22.0
+margin_top = 26.0
+margin_right = 335.0
+margin_bottom = 48.0
 text = "Icons by @iknowkingrabbit"
 
 [node name="godot" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-margin_right = 35.0
-margin_bottom = 22.0
+margin_top = 52.0
+margin_right = 335.0
+margin_bottom = 74.0
 text = "Godot <3"
 align = 1
 
@@ -249,6 +251,43 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TODO resources" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 897.0
+margin_right = 985.0
+margin_bottom = 127.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TODO resources"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TODO resources/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 22.0
+
+[node name="Label" type="Label" parent="TODO resources/VBoxContainer/HBoxContainer"]
+margin_right = 44.0
+margin_bottom = 22.0
+text = "Stone"
+
+[node name="Control" type="Control" parent="TODO resources/VBoxContainer/HBoxContainer"]
+anchor_right = 1.0
+margin_right = 48.0
+margin_bottom = 22.0
+
+[node name="Sprite" type="Sprite" parent="TODO resources/VBoxContainer/HBoxContainer/Control"]
+texture = ExtResource( 11 )
+centered = false
+offset = Vector2( -16, 0 )
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
 [connection signal="pressed" from="Menu/Main/GridContainer/SaveBtn" to="Menu/Main/GridContainer/SaveBtn" method="_on_SaveBtn_pressed"]
 [connection signal="pressed" from="Menu/Main/GridContainer/LoadBtn" to="Menu/Main/GridContainer/LoadBtn" method="_on_LoadBtn_pressed"]

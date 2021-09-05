@@ -19,6 +19,7 @@ Some notes and a todo and resources for now:
   - DONE: WASD move relative to camera, face mouse projected to plane
 - Resource collection
   - Get a couple different resource types and passively harvest when nearby
+  - DONE: We have rocks and trees
 - Firing a weapon
 - Building things?
   - Need to make things to build

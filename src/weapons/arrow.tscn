@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://mat/tree_bark.tres" type="Material" id=1]
+[ext_resource path="res://mat/flight.tres" type="Material" id=2]
+[ext_resource path="res://src/weapons/Arrow.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+params_blend_mode = 1
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.377938
+
+[node name="arrow" type="Area" groups=[
+"arrow",
+]]
+collision_layer = 2147483650
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+
+[node name="head" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 5 )
+height = 2.0
+cone = true
+material = SubResource( 1 )
+
+[node name="shaft" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+radius = 0.25
+height = 10.0
+material = ExtResource( 1 )
+
+[node name="flight_1" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.125, -0.125, -5 )
+polygon = PoolVector2Array( -1, 0, 0, 1.5, 1, 0 )
+depth = 0.25
+material = ExtResource( 2 )
+
+[node name="flight_2" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( 2.65431e-14, -1.62921e-07, -1, -1, -1.62921e-07, 0, -1.62921e-07, 1, -1.62921e-07, -0.125, 0, -5 )
+polygon = PoolVector2Array( -1, 0, 0, 1.5, 1, 0 )
+depth = 0.25
+material = ExtResource( 2 )
+
+[node name="flight_3" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.125, -0.125, -5 )
+polygon = PoolVector2Array( -1, 0, 0, 1.5, 1, 0 )
+depth = 0.25
+material = ExtResource( 2 )
+
+[node name="flight_4" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( 2.65431e-14, -1.62921e-07, -1, -1, -1.62921e-07, 0, -1.62921e-07, 1, -1.62921e-07, -0.125, 0, -5 )
+polygon = PoolVector2Array( -1, 0, 0, 1.5, 1, 0 )
+depth = 0.25
+material = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.36116 )
+shape = SubResource( 2 )

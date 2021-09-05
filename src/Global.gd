@@ -1,5 +1,12 @@
 extends Node
 
+onready var SPAWN = $"/root/Main/spawn"
+
+const GROUP = {
+	"PLAYER": "player",
+	"RESOURCE": "resource",
+}
+
 static func test():
 	print("Hi")
 	return 10

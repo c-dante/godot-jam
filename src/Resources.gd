@@ -35,3 +35,15 @@ var Items = {
 
 # Object.instance_id -> ResourceType -> int
 var Inventory = {}
+
+# Checks if a given inventorty can afford a cost
+static func canAfford(inv, cost):
+	for mat in cost:
+		if !inv.has(mat) || inv[mat] < cost[mat]:
+			return false
+	return true
+
+# Removes the cost from the inventory
+static func removeCost(inv, cost):
+	for mat in cost:
+		inv[mat] -= cost[mat]

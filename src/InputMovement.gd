@@ -1,5 +1,4 @@
 extends "res://src/Movement.gd"
-const Global = preload("res://src/Global.gd")
 
 onready var view = get_viewport()
 

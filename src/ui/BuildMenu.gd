@@ -33,12 +33,9 @@ func _on_btn_press(btn):
 	if Resources.Inventory.has(purchase_id):
 		var inv = Resources.Inventory[purchase_id]
 
-		for mat in cost:
-			if !inv.has(mat) || inv[mat] < cost[mat]:
-				return
-
-		for mat in cost:
-			inv[mat] -= cost[mat]
+		if !Resources.canAfford(inv, cost):
+			return
+		Resources.removeCost(inv, cost)
 
 		match itemType:
 			Res.ItemType.Miner:
@@ -48,5 +45,6 @@ func _on_btn_press(btn):
 				miner.transform.origin = player.transform.origin
 				$"/root/Main/spawn".add_child(miner)
 				return
+			# Defer to event bus
 			var other:
-				print("Cannot puchase: " + Resources.itemString(other))
+				Events.purchase_attempt(purchase_id, other, cost)

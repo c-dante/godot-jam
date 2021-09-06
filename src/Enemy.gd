@@ -1,5 +1,5 @@
 extends KinematicBody
-
+class_name Enemy
 
 export (NodePath) var meshPath
 onready var mesh = get_node(meshPath)

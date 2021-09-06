@@ -37,12 +37,35 @@ func gameOverClosed():
 	get_tree().paused = false
 	Events.restart_game()
 
-# -------- TODO NOT HERE
+# -------- TODO NOT HERE. THIS IS THE GAME OVER LOGIC XD
 func killableKill(entity):
 	if entity == $"/root/Main/Player":
 		Events.game_over(entity)
 
 func gameOver(player):
-	print(player)
 	get_tree().paused = true
 	$GameOver.popup_centered()
+	var score = 0
+	score += 10 * player.minersBuilt
+	score += 100 * player.kills
+	score += floor(player.gameTime)
+	score -= 10 * player.minersLost
+
+	var result_text = """
+Score: {score}
+
+You survived for {time} seconds
+You slayed {kills} enemies
+You built {built_miners} miners and lost {lost_miners} of them
+
+Thanks for playing!
+
+Close or hit ok to start again.
+"""
+	$GameOver.dialog_text = result_text.format({
+		"score": score,
+		"time": floor(player.gameTime),
+		"kills": player.kills,
+		"built_miners": player.minersBuilt,
+		"lost_miners": player.minersLost,
+	})

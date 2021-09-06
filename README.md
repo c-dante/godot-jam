@@ -18,6 +18,7 @@ Some notes and a todo and resources for now:
   - Abstract the "enter/exit" area and map of in-area logic as a helper
   - This is used by enemies for AOE attacking as well as gatherables!!
 
+
 ### Work / TODO
 - **DONE** Basic twinstick impl going
   - Movement of PC, WASD + mouse for now, controllers later
@@ -33,9 +34,9 @@ Some notes and a todo and resources for now:
   - **DONE** Something to break miners -- and you
   - Track how many attackers + spread out more to disrupt
 - Make a survival loop + score + death/restart
-  - Player health (time instead?)
+  - **DONE** Player health (time instead?)
   - Score - Resources mined, enemies killed, time survived, resources spent (?)
-  - death screen
+  - **DONE**death screen
   - **DONE** Restart
 - UX
   - Player, enemy, miner health bars
@@ -65,6 +66,7 @@ Some notes and a todo and resources for now:
 ## HACK FIXES
 - Gatherable assumes only player
 - `ui.gd` has the game over logic xD
+- Stats collected in `Player.gd` and same is used for game over display ui
 
 ## Resources
 - [Some docs](https://docs.godotengine.org/en/stable/tutorials/physics/rigid_body.html)

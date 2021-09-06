@@ -44,6 +44,7 @@ func _on_btn_press(btn):
 				miner.transform.origin = player.transform.origin
 				miner.add_to_group(Global.GROUP.PLAYER)
 				$"/root/Main/spawn".add_child(miner)
+				$"/root/Main/Player".minersBuilt += 1
 
 			# Defer to event bus
 			var other:

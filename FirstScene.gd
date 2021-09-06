@@ -8,6 +8,6 @@ func _ready():
 		cheat_grant()
 
 func cheat_grant():
-	Global.gatherResource($Player.get_instance_id(), Res.ResourceType.Stone, 1000)
-	Global.gatherResource($Player.get_instance_id(), Res.ResourceType.Wood, 1000)
+	Resources.gatherResource($Player.get_instance_id(), Res.ResourceType.Stone, 1000)
+	Resources.gatherResource($Player.get_instance_id(), Res.ResourceType.Wood, 1000)
 	Events.purchase_attempt($Player.get_instance_id(), Res.ItemType.Bow, {})

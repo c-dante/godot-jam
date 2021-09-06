@@ -1,7 +1,6 @@
 extends Node
 
-onready var SPAWN: Node = $"/root/Main/spawn"
-
+# ------------------------------ Constants
 const GROUP = {
 	# Group of things that can be "killed", node must be named the group name
 	"KILLABLE": "Killable",
@@ -15,21 +14,30 @@ const GROUP = {
 	"ENEMY": "Enemy",
 }
 
+# ------------------------------ Statics
+
+# Spatial, Spatial[] -> Spatial
+static func findClosestNode(fromNode, candidates):
+	var fromPt: Vector3 = fromNode.global_transform.origin
+	var best: Spatial
+	var best_distance: float
+		# = fromPt.distance_squared_to(best.global_transform.origin)
+	for candidate in candidates:
+		var dist = fromPt.distance_squared_to(candidate.global_transform.origin)
+		if best == null || dist < best_distance:
+			best = candidate
+			best_distance = dist
+	return best
+
+# ------------------------------ Singleton Instance
+onready var SPAWN: Node = $"/root/Main/spawn"
+
 var Rng = RandomNumberGenerator.new()
 
 func _ready():
 	_reset_state()
 
 func _reset_state():
-	print("RESET GLOBAL")
 	Rng.seed = 8675309
 	seed(Rng.seed)
 	SPAWN = $"/root/Main/spawn"
-
-func gatherResource(owner_instance_id: int, resource: int, amount: float):
-	var inv = Resources.Inventory
-	if !inv.has(owner_instance_id):
-		inv[owner_instance_id] = {}
-	if !inv[owner_instance_id].has(resource):
-		inv[owner_instance_id][resource] = 0
-	inv[owner_instance_id][resource] += amount

@@ -1,5 +1,6 @@
 extends Node
 
+# ------------------------------ Constants
 enum ResourceType { Stone, Wood }
 
 static func resourceString(res):
@@ -33,6 +34,7 @@ var Items = {
 	}
 }
 
+# ------------------------------ Statics
 # Checks if a given inventorty can afford a cost
 static func canAfford(inv, cost):
 	for mat in cost:
@@ -46,7 +48,7 @@ static func removeCost(inv, cost):
 		inv[mat] -= cost[mat]
 
 
-# --------------------------------------------
+# ------------------------------ Singleton Instance
 # Object.instance_id -> ResourceType -> int
 var Inventory = {}
 
@@ -56,3 +58,11 @@ func _ready():
 
 func _reset_state():
 	Inventory = {}
+
+func gatherResource(owner_instance_id: int, resource: int, amount: float):
+	var inv = Resources.Inventory
+	if !inv.has(owner_instance_id):
+		inv[owner_instance_id] = {}
+	if !inv[owner_instance_id].has(resource):
+		inv[owner_instance_id][resource] = 0
+	inv[owner_instance_id][resource] += amount

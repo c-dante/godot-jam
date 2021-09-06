@@ -14,9 +14,6 @@ func _ready():
 func _process(_delta):
 	if !viewedIntro:
 		viewedIntro = true
-		for child in $IntroDialog.get_children():
-			print([child, child.get_path()])
-
 		if $IntroDialog.connect("popup_hide", self, "introClosed") != OK:
 			push_error("Failed to connect popup pause")
 		else:

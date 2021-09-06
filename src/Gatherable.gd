@@ -74,7 +74,7 @@ func _physics_process(delta):
 			for produceIdx in range(produces.size()):
 				var resource = produces[produceIdx]
 				var volume = producesVolume[produceIdx]
-				Global.gatherResource(contribute_id, resource, portion * volume)
+				Resources.gatherResource(contribute_id, resource, portion * volume)
 
 	# Update bar
 	bar.progress = remaining / gatherTimeSec;

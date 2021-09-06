@@ -52,7 +52,7 @@ Events="*res://src/Events.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "imjp94.yafsm" )
 
 [input]
 

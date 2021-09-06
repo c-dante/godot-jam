@@ -13,6 +13,10 @@ signal on_killable_kill(entity)
 func killable_kill(entity):
 	emit_signal("on_killable_kill", entity)
 
+signal on_resource_gather(owner_instance_id, resource, amount)
+func resource_gather(owner_instance_id, resource, amount):
+	emit_signal("on_resource_gather", owner_instance_id, resource, amount)
+
 signal on_game_over(player)
 func game_over(player):
 	emit_signal("on_game_over", player)

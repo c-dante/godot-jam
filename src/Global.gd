@@ -12,6 +12,8 @@ const GROUP = {
 	"RESOURCE": "Resource",
 	# All neutral mob enemies
 	"ENEMY": "Enemy",
+	# Holding stuff component
+	"EQUIPMENT": "Equipment",
 }
 
 # ------------------------------ Statics
@@ -28,6 +30,9 @@ static func findClosestNode(fromNode, candidates):
 			best = candidate
 			best_distance = dist
 	return best
+
+static func formatTime(time: float):
+	return "%d" % floor(time)
 
 # ------------------------------ Singleton Instance
 onready var SPAWN: Node = $"/root/Main/spawn"

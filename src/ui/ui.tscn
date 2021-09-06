@@ -144,23 +144,6 @@ Mouse to aim
 Be sad if you're on mobile (sorry) or want to plug in a gamepad (again, sorry)"
 dialog_autowrap = true
 
-[node name="center" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Game Time" type="Label" parent="center"]
-margin_left = 540.696
-margin_right = 604.696
-margin_bottom = 22.0
-text = "10:00:00"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="right" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -191,7 +174,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="wave_time2" type="Label" parent="right/VBoxContainer"]
+[node name="life" type="Label" parent="right/VBoxContainer"]
 margin_top = 26.0
 margin_right = 974.0
 margin_bottom = 48.0
@@ -202,7 +185,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="wave_time3" type="Label" parent="right/VBoxContainer"]
+[node name="stone" type="Label" parent="right/VBoxContainer"]
 margin_top = 52.0
 margin_right = 974.0
 margin_bottom = 74.0
@@ -213,7 +196,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="wave_time4" type="Label" parent="right/VBoxContainer"]
+[node name="wood" type="Label" parent="right/VBoxContainer"]
 margin_top = 78.0
 margin_right = 974.0
 margin_bottom = 100.0
@@ -224,7 +207,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="wave_time5" type="Label" parent="right/VBoxContainer"]
+[node name="has_bow" type="Label" parent="right/VBoxContainer"]
 margin_top = 104.0
 margin_right = 974.0
 margin_bottom = 126.0
@@ -257,10 +240,6 @@ __meta__ = {
 }
 
 [node name="GameOver" type="AcceptDialog" parent="."]
-margin_left = 408.953
-margin_top = 317.839
-margin_right = 491.953
-margin_bottom = 385.839
 popup_exclusive = true
 window_title = "!! Game Over !!"
 dialog_text = "Oh no"

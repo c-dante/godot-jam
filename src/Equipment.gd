@@ -1,4 +1,5 @@
 extends Node
+class_name Equipment
 
 const Res = preload("res://src/Resources.gd")
 const Bow = preload("res://src/weapons/Bow.gd")
@@ -10,6 +11,7 @@ export (NodePath) var ownerPath
 onready var parent: Node = get_node(ownerPath)
 
 var owner_id
+# Res.ItemType -> Object
 var owned_items = {}
 
 # Called when the node enters the scene tree for the first time.

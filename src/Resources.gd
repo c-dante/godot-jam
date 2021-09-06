@@ -66,3 +66,10 @@ func gatherResource(owner_instance_id: int, resource: int, amount: float):
 	if !inv[owner_instance_id].has(resource):
 		inv[owner_instance_id][resource] = 0
 	inv[owner_instance_id][resource] += amount
+	Events.resource_gather(owner_instance_id, resource, amount)
+
+func getResource(ownerId: int, resourceType: int):
+	var inv = Resources.Inventory
+	if !inv.has(ownerId):
+		return 0
+	return inv[ownerId].get(resourceType, 0)

@@ -40,12 +40,12 @@ Some notes and a todo and resources for now:
   - **DONE** Restart
 - UX
   - Player, enemy, miner health bars?
-  - Resource gathering
+  - **Done** Resource gathering
   - Miner state
   - Weapon / equipment state
   - Build menu cleanup
   - Pause menu
-  - **Done**Newgame / death screen
+  - **Done** Newgame / death screen
   - Save/Load (no)
 - Juice
   - Arrow flight, fire, despawn, hit feedback

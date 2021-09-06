@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://mat/tree_bark.tres" type="Material" id=1]
 [ext_resource path="res://mat/flight.tres" type="Material" id=2]
@@ -11,6 +11,27 @@ albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="SphereShape" id=2]
 radius = 0.823411
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+direction = Vector3( 0, 0, -1 )
+spread = 30.0
+gravity = Vector3( 0, -2, 0 )
+initial_velocity = 2.0
+scale = 0.1
+color_ramp = SubResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 7 )
 
 [node name="arrow" type="Area" groups=[
 "arrow",
@@ -61,4 +82,14 @@ material = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.36116 )
 shape = SubResource( 2 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.96201 )
+amount = 10
+lifetime = 1.5
+speed_scale = 3.0
+visibility_aabb = AABB( 0, 0, 0, 1, 1, 1 )
+local_coords = false
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_arrow_body_entered"]

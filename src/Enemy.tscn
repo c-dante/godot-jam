@@ -142,7 +142,7 @@ script = ExtResource( 3 )
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource( 2 )
-movementSpeed = 5.0
+movementSpeed = 8.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -172,8 +172,10 @@ script = ExtResource( 10 )
 [node name="CollisionShape" type="CollisionShape" parent="Attack"]
 shape = SubResource( 4 )
 
-[node name="CSGSphere" type="CSGSphere" parent="Attack"]
-radius = 3.0
+[node name="Range" type="CSGTorus" parent="Attack"]
+inner_radius = 2.8
+sides = 25
+ring_sides = 3
 material = SubResource( 5 )
 [connection signal="updated" from="FSM" to="." method="_on_FSM_updated"]
 [connection signal="body_entered" from="Attack" to="Attack" method="_on_Attack_body_entered"]

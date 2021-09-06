@@ -62,7 +62,7 @@ func gameOver(player):
 	var result_text = """
 Score: {score}
 
-You survived for {time} seconds
+You survived for {time}
 You slayed {kills} enemies
 You built {built_miners} miners and lost {lost_miners} of them
 You mined {total_mined} resources

@@ -48,12 +48,11 @@ Some notes and a todo and resources for now:
   - **Done** Newgame / death screen
   - Save/Load (no)
 - Juice
-  - Arrow flight, fire, despawn, hit feedback
-  - Enemy attack, damage, death feedback
+  - **DONE** Arrow flight, fire, despawn, hit feedback
+  - **DONE** Enemy attack, damage, death feedback
+  - **DONE** Player attack, damage, death feedback
   - Miner attack, damage, death feedback
-  - Player attack, damage, death feedback
   - Miner mining feedback
-  - Mining feedback!
 - Gameplay
   - **Done** Score
   - **Done** Player death

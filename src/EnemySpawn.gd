@@ -48,9 +48,19 @@ onready var waveDelay = 15
 var waveNum = 1
 var toSpawn = 5
 func _on_Timer_timeout():
-	print("Spawned %d enemies" % toSpawn)
 	for _i in range(toSpawn):
 		spawnEnemy()
-	# $Timer.start(waveDelay)
+	$Grace.start()
 	waveNum += 1
 	toSpawn = min(35, 5 * waveNum)
+
+func _on_Grace_timeout():
+	$Timer.start()
+
+func _process(_delta):
+	# Clearing the wave starts next wave timer
+	var enemies = get_tree().get_nodes_in_group(Global.GROUP.ENEMY)
+	if enemies.empty() && $Timer.is_stopped():
+		$Timer.start()
+		$Grace.stop()
+

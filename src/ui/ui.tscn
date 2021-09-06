@@ -77,6 +77,7 @@ __meta__ = {
 }
 
 [node name="Credits" type="Tabs" parent="Menu"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -188,7 +189,7 @@ margin_top = 26.0
 margin_right = 974.0
 margin_bottom = 48.0
 size_flags_vertical = 1
-text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+text = "10 life"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false

@@ -24,7 +24,6 @@ albedo_color = Color( 0.921569, 0, 1, 0.0588235 )
 script = ExtResource( 4 )
 barPath = NodePath("../bar")
 gatheringAreaPath = NodePath("../gather")
-gatherTimeSec = 0.5
 produces = [ 0 ]
 producesVolume = [ 1.0 ]
 

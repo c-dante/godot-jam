@@ -31,8 +31,11 @@ static func findClosestNode(fromNode, candidates):
 			best_distance = dist
 	return best
 
-static func formatTime(time: float):
-	return "%d" % floor(time)
+static func formatTime(seconds: float):
+	var hoursRaw = (seconds / 60) / 60
+	var minutesRaw = (hoursRaw - floor(hoursRaw)) * 60
+	var secondsRaw = (minutesRaw - floor(minutesRaw)) * 60
+	return "%d:%02d:%02d" % [floor(hoursRaw), floor(minutesRaw), floor(secondsRaw)]
 
 # ------------------------------ Singleton Instance
 onready var SPAWN: Node = $"/root/Main/spawn"

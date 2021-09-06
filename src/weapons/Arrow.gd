@@ -1,6 +1,8 @@
 extends Spatial
 
+const ParticleBurst = preload("res://src/effects/ParticleBurst.tscn")
 const Killable = preload("res://src/Killable.gd")
+
 const FORWARD = Vector3(0, 0, 1)
 const LIFETIME = 3
 
@@ -22,6 +24,11 @@ func _physics_process(delta):
 
 func _on_timeout():
 	queue_free()
+	var particles: Particles = ParticleBurst.instance()
+	particles.set_translation(global_transform.origin)
+	particles.amount = 5
+	particles.process_material.scale = 0.1
+	Global.SPAWN.add_child(particles)
 
 func _on_arrow_body_entered(body):
 	if !alive:

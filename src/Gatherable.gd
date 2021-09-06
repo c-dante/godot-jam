@@ -69,8 +69,10 @@ func _physics_process(delta):
 		for name in gatherCycle:
 			var portion = gatherCycle[name] / gatherTimeSec
 			gatherCycle[name] = 0
-			var miner = instance_from_id(name)
-			var contribute_id = miner.owner_id if miner.get("owner_id") != null else name
+			# var miner = instance_from_id(name)
+			# var contribute_id = miner.owner_id if miner.get("owner_id") != null else name
+			# TODO: only player mines for now
+			var contribute_id = $"/root/Main/Player".get_instance_id()
 			for produceIdx in range(produces.size()):
 				var resource = produces[produceIdx]
 				var volume = producesVolume[produceIdx]

@@ -31,6 +31,7 @@ static func findClosestNode(fromNode, candidates):
 
 # ------------------------------ Singleton Instance
 onready var SPAWN: Node = $"/root/Main/spawn"
+onready var viewedIntro = false
 
 var Rng = RandomNumberGenerator.new()
 

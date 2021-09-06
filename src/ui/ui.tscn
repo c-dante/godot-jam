@@ -255,5 +255,17 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOver" type="AcceptDialog" parent="."]
+margin_left = 408.953
+margin_top = 317.839
+margin_right = 491.953
+margin_bottom = 385.839
+popup_exclusive = true
+window_title = "!! Game Over !!"
+dialog_text = "Oh no"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
 [connection signal="pressed" from="Menu/Credits/ScrollContainer/VBoxContainer/Button" to="." method="_on_Reload_pressed"]

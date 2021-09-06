@@ -14,7 +14,9 @@ Some notes and a todo and resources for now:
 - The demo I have is there -- great starting place and a couple nice addons
 
 ## BUGS
-- Spawner sometimes picks bad spots?
+- Scripts that track by a map of instance id are a hard pattern
+  - Abstract the "enter/exit" area and map of in-area logic as a helper
+  - This is used by enemies for AOE attacking as well as gatherables!!
 
 ### Work / TODO
 - **DONE** Basic twinstick impl going
@@ -28,14 +30,14 @@ Some notes and a todo and resources for now:
 - Firing a weapon (build it first!)
   - **DONE**
 - Enemies / AI
-  - Something to break miners -- and you
+  - **DONE** Something to break miners -- and you
   - Track how many attackers + spread out more to disrupt
 - Make a survival loop + score + death/restart
   - Player health (time instead?)
   - Score - Resources mined, enemies killed, time survived, resources spent (?)
   - death screen
   - **DONE** Restart
-- Ux
+- UX
   - Player, enemy, miner health bars
   - Resource gathering
   - Miner state
@@ -54,12 +56,15 @@ Some notes and a todo and resources for now:
 - Gameplay
   - Score
   - Player death
+  - Safe/Danger cycle
   - Expand the map and playable area
   - Weapon upgrades and types
   - More enemey attack patterns
-  - **DONE** Safe/Danger cycle
-    - Can be better, but for now a timer
   - Instead of health a "time" bar?
+
+## HACK FIXES
+- Gatherable assumes only player
+- `ui.gd` has the game over logic xD
 
 ## Resources
 - [Some docs](https://docs.godotengine.org/en/stable/tutorials/physics/rigid_body.html)

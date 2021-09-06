@@ -9,9 +9,13 @@ signal on_purchase_attempt(owner, item, cost)
 func purchase_attempt(owner, item, cost):
 	emit_signal("on_purchase_attempt", owner, item, cost)
 
-# signal on_killable_hit(killable, projectile)
-# func killable_hit(killable, projectile):
-# 	emit_signal("on_killable_hit", killable, projectile)
+signal on_killable_kill(entity)
+func killable_kill(entity):
+	emit_signal("on_killable_kill", entity)
+
+signal on_game_over(player)
+func game_over(player):
+	emit_signal("on_game_over", player)
 
 signal on_restart_game()
 func restart_game():

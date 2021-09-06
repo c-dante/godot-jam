@@ -95,7 +95,6 @@ func _on_btn_press(btn):
 					return
 				Resources.removeCost(inv, cost)
 				var miner = Miner.instance()
-				miner.owner = miner
 				miner.owner_id = buyer_id
 				miner.transform.origin = player.transform.origin
 				miner.add_to_group(Global.GROUP.PLAYER)

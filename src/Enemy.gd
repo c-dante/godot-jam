@@ -12,10 +12,12 @@ func _on_FSM_updated(state, _delta):
 			pass
 
 		"FindTarget":
-			target = Global.findClosestNode(
-				self,
-				get_tree().get_nodes_in_group(Global.GROUP.PLAYER)
-			)
+			# Jank to not just alays pick the closest
+			var candidates = get_tree().get_nodes_in_group(Global.GROUP.PLAYER)
+			candidates.shuffle()
+			var sample = candidates.slice(0, 15)
+			sample.append($"/root/Main/Player")
+			target = Global.findClosestNode(self, sample)
 
 		"MoveToTarget":
 			if target == null:

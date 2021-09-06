@@ -22,5 +22,5 @@ func kill():
 	Global.SPAWN.add_child(particles)
 
 	Events.killable_kill(entity)
-	if removeSelf:
+	if removeSelf && !entity.is_queued_for_deletion():
 		entity.queue_free()

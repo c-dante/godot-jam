@@ -1,6 +1,6 @@
 extends Button
 
-signal on_press(owner)
+signal on_press(btn)
 
 export (String, MULTILINE) var tooltip setget set_tooltip
 export (NodePath) var tooltipPath = "/root/Main/ui/ToolTip"

@@ -46,7 +46,6 @@ func randomPointInShapes():
 
 const MAX_ENEMIES = 50
 const ENEMIES_PER_WAVE = 2
-onready var waveDelay = 15
 var waveNum = 1
 func _on_Timer_timeout():
 	var enemies = get_tree().get_nodes_in_group(Global.GROUP.ENEMY)

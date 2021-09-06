@@ -32,5 +32,5 @@ func _physics_process(delta):
 		arrow.owner_id = owner_id
 		arrow.set_translation(meshxform.origin)
 		arrow.rotate_y(PI + mesh.rotation.y)
-		arrow.piercing = piercingLevel
+		arrow.piercing = piercingLevel + 1
 		Global.SPAWN.add_child(arrow)

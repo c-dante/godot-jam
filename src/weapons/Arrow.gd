@@ -7,7 +7,7 @@ const FORWARD = Vector3(0, 0, 1)
 const LIFETIME = 3
 
 export (int) var owner_id
-export (int) var piercing = 0
+export (int) var piercing = 1
 export (float) var speed = 25.0
 export (float) var knockback = 100.0
 export (float) var damage = 10.0
@@ -18,14 +18,16 @@ var pierceTrack = {}
 func _ready():
 	if get_tree().create_timer(LIFETIME).connect("timeout", self, "_on_timeout") != OK:
 		push_error("Failed to create timer")
-		queue_free()
+		if !is_queued_for_deletion():
+			queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	translate_object_local(speed * delta * FORWARD)
 
 func _on_timeout():
-	queue_free()
+	if !is_queued_for_deletion():
+		queue_free()
 	var particles: Particles = ParticleBurst.instance()
 	particles.set_translation(global_transform.origin)
 	particles.amount = 5
@@ -60,4 +62,5 @@ func _on_arrow_body_entered(body):
 		# Remove self if no more piercing
 		if piercing <= 0:
 			alive = false
-			queue_free()
+			if !is_queued_for_deletion():
+				queue_free()

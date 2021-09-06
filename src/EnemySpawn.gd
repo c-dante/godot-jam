@@ -27,9 +27,9 @@ func _physics_process(delta):
 	if nextSpawn <= 0:
 		nextSpawn = 5
 		var enemy = Enemey.instance()
+		Global.SPAWN.add_child(enemy)
 		enemy.global_translate(randomPointInShapes())
 		enemy.add_to_group(Global.GROUP.ENEMY)
-		Global.SPAWN.add_child(enemy)
 
 
 func randomPointInShapes():

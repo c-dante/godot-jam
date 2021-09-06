@@ -15,18 +15,31 @@ _global_script_classes=[ {
 "path": "res://src/Bar/Bar.gd"
 }, {
 "base": "Node",
+"class": "Killable",
+"language": "GDScript",
+"path": "res://src/Killable.gd"
+}, {
+"base": "Node",
 "class": "Movement",
 "language": "GDScript",
 "path": "res://src/Movement.gd"
 } ]
 _global_script_class_icons={
 "Bar": "",
+"Killable": "",
 "Movement": ""
 }
 
 [application]
 
-config/name="Jam"
+config/name="Hold Out"
+config/description="​First attempt at a game in Godot, and first game in a looooooong (10 years?) time.
+
+W/A/S/D to move, mouse + left click to shoot, Q / E to rotate the camera.
+
+Survive waves of enemies while mining resources for upgrades.
+
+This draft was done from scratch over a 3 day weekend for the Stop Waiting for Godot game jam #stopwaitingforgodot​​​ #SWFG"
 run/main_scene="res://FirstScene.tscn"
 config/icon="res://icon.png"
 

@@ -78,79 +78,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main" type="Tabs" parent="Menu"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 29.0
-margin_right = -5.0
-margin_bottom = -5.0
-
-[node name="GridContainer" type="GridContainer" parent="Menu/Main"]
-margin_right = 295.0
-margin_bottom = 182.0
-columns = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveBtn" type="Button" parent="Menu/Main/GridContainer"]
-margin_right = 41.0
-margin_bottom = 22.0
-disabled = true
-text = "Save"
-script = ExtResource( 6 )
-
-[node name="LoadBtn" type="Button" parent="Menu/Main/GridContainer"]
-margin_left = 51.0
-margin_right = 93.0
-margin_bottom = 22.0
-disabled = true
-text = "Load"
-script = ExtResource( 5 )
-
-[node name="Cams" type="Tabs" parent="Menu"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 29.0
-margin_right = -5.0
-margin_bottom = -5.0
-theme = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CameraBox" type="VBoxContainer" parent="Menu/Cams"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player Camera" type="Button" parent="Menu/Cams/CameraBox"]
-margin_right = 335.0
-margin_bottom = 22.0
-rect_pivot_offset = Vector2( 236.825, 76.468 )
-toggle_mode = true
-text = "Player Camera"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Camera1" type="Button" parent="Menu/Cams/CameraBox"]
-margin_top = 26.0
-margin_right = 335.0
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 236.825, 76.468 )
-toggle_mode = true
-text = "Camera 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Credits" type="Tabs" parent="Menu"]
 visible = false
 anchor_right = 1.0
@@ -196,15 +123,88 @@ margin_bottom = 22.0
 text = "Godot <3"
 align = 1
 
-[node name="IntroDialog" type="ConfirmationDialog" parent="."]
+[node name="DISABLED" type="Node" parent="Menu"]
+
+[node name="Main" type="Tabs" parent="Menu/DISABLED"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 58.0
+margin_bottom = 24.0
+
+[node name="GridContainer" type="GridContainer" parent="Menu/DISABLED/Main"]
+margin_right = 295.0
+margin_bottom = 182.0
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveBtn" type="Button" parent="Menu/DISABLED/Main/GridContainer"]
+margin_right = 41.0
+margin_bottom = 22.0
+disabled = true
+text = "Save"
+script = ExtResource( 6 )
+
+[node name="LoadBtn" type="Button" parent="Menu/DISABLED/Main/GridContainer"]
+margin_left = 51.0
+margin_right = 93.0
+margin_bottom = 22.0
+disabled = true
+text = "Load"
+script = ExtResource( 5 )
+
+[node name="Cams" type="Tabs" parent="Menu/DISABLED"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 58.0
+margin_bottom = 24.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CameraBox" type="VBoxContainer" parent="Menu/DISABLED/Cams"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player Camera" type="Button" parent="Menu/DISABLED/Cams/CameraBox"]
+margin_right = 335.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 236.825, 76.468 )
+toggle_mode = true
+text = "Player Camera"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera1" type="Button" parent="Menu/DISABLED/Cams/CameraBox"]
+margin_top = 26.0
+margin_right = 335.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 236.825, 76.468 )
+toggle_mode = true
+text = "Camera 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IntroDialog" type="AcceptDialog" parent="."]
 margin_left = 82.1821
 margin_top = 119.523
 margin_right = 434.182
 margin_bottom = 323.523
 rect_scale = Vector2( 0.987951, 1.01782 )
 popup_exclusive = true
-window_title = "Woah it's a thing"
-dialog_text = "Hey so this is a game thing maybe.
+window_title = "Welcome!"
+dialog_text = "It's Hold Out! Survive as long as you can, mine resources to build and upgrade, and defeat waves of enemies.
 
 WASD to move
 Q, E to rotate the view
@@ -213,9 +213,6 @@ Mouse to aim
 
 Be sad if you're on mobile (sorry) or want to plug in a gamepad (again, sorry)"
 dialog_autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TODO resources" type="Control" parent="."]
 visible = false
@@ -274,7 +271,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
-[connection signal="pressed" from="Menu/Main/GridContainer/SaveBtn" to="Menu/Main/GridContainer/SaveBtn" method="_on_SaveBtn_pressed"]
-[connection signal="pressed" from="Menu/Main/GridContainer/LoadBtn" to="Menu/Main/GridContainer/LoadBtn" method="_on_LoadBtn_pressed"]
-[connection signal="pressed" from="Menu/Cams/CameraBox/Player Camera" to="." method="_on_Player_Camera_pressed"]
-[connection signal="pressed" from="Menu/Cams/CameraBox/Camera1" to="." method="_on_Camera1_pressed"]
+[connection signal="pressed" from="Menu/DISABLED/Main/GridContainer/SaveBtn" to="Menu/DISABLED/Main/GridContainer/SaveBtn" method="_on_SaveBtn_pressed"]
+[connection signal="pressed" from="Menu/DISABLED/Main/GridContainer/LoadBtn" to="Menu/DISABLED/Main/GridContainer/LoadBtn" method="_on_LoadBtn_pressed"]
+[connection signal="pressed" from="Menu/DISABLED/Cams/CameraBox/Player Camera" to="." method="_on_Player_Camera_pressed"]
+[connection signal="pressed" from="Menu/DISABLED/Cams/CameraBox/Camera1" to="." method="_on_Camera1_pressed"]

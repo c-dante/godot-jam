@@ -10,19 +10,31 @@ var cam1: Camera
 onready var playerCamBtn = $"Menu/Cams/CameraBox/Player Camera"
 onready var cam1Btn = $"Menu/Cams/CameraBox/Camera1"
 
-var viewedIntro = true
+var viewedIntro = false
 
 func _ready():
+	pause_mode = PAUSE_MODE_PROCESS
 	view = get_viewport();
 	playerCam = get_node(playerCamPath)
 	cam1 = get_node(cam1Path)
-	setButtonState()
-	# print(viewedIntro)
+	if playerCamBtn != null && cam1Btn != null:
+		setButtonState()
 
 func _process(_delta):
 	if !viewedIntro:
 		viewedIntro = true
-		$"./IntroDialog".popup()
+		for child in $IntroDialog.get_children():
+			print([child, child.get_path()])
+
+		if $IntroDialog.connect("popup_hide", self, "introClosed") != OK:
+			push_error("Failed to connect popup pause")
+		else:
+			get_tree().paused = true
+
+		$IntroDialog.popup_centered()
+
+func introClosed():
+	get_tree().paused = false
 
 func setButtonState():
 	playerCamBtn.pressed = view.get_camera() == playerCam

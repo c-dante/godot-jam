@@ -27,6 +27,10 @@ func _on_arrow_body_entered(body):
 	if !alive:
 		return
 
+	# todo: instead of owner id maybe group ownership for friendly fire?
+	if body.is_in_group(Global.GROUP.PLAYER):
+		return
+
 	if body.get_instance_id() != owner_id:
 		# Apply knockback
 		var as_kine = body as KinematicBody

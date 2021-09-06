@@ -35,17 +35,17 @@ Some notes and a todo and resources for now:
   - Track how many attackers + spread out more to disrupt
 - Make a survival loop + score + death/restart
   - **DONE** Player health (time instead?)
-  - Score - Resources mined, enemies killed, time survived, resources spent (?)
+  - **Done** Score - Resources mined, enemies killed, time survived, resources spent (?)
   - **DONE**death screen
   - **DONE** Restart
 - UX
-  - Player, enemy, miner health bars
+  - Player, enemy, miner health bars?
   - Resource gathering
   - Miner state
   - Weapon / equipment state
   - Build menu cleanup
   - Pause menu
-  - Newgame / death screen
+  - **Done**Newgame / death screen
   - Save/Load (no)
 - Juice
   - Arrow flight, fire, despawn, hit feedback
@@ -55,8 +55,8 @@ Some notes and a todo and resources for now:
   - Miner mining feedback
   - Mining feedback!
 - Gameplay
-  - Score
-  - Player death
+  - **Done** Score
+  - **Done** Player death
   - Safe/Danger cycle
   - Expand the map and playable area
   - Weapon upgrades and types

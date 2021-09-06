@@ -33,19 +33,18 @@ func _on_btn_press(btn):
 	if Resources.Inventory.has(purchase_id):
 		var inv = Resources.Inventory[purchase_id]
 
-		if !Resources.canAfford(inv, cost):
-			return
-		Resources.removeCost(inv, cost)
-
 		match itemType:
 			Res.ItemType.Miner:
+				if !Resources.canAfford(inv, cost):
+					return
+				Resources.removeCost(inv, cost)
 				var miner = Miner.instance()
 				miner.owner = miner
 				miner.owner_id = purchase_id
 				miner.transform.origin = player.transform.origin
 				miner.add_to_group(Global.GROUP.PLAYER)
 				$"/root/Main/spawn".add_child(miner)
-				return
+
 			# Defer to event bus
 			var other:
 				Events.purchase_attempt(purchase_id, other, cost)

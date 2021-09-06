@@ -1,14 +1,11 @@
 extends GridContainer
 
+const Equipment = preload("res://src/Equipment.gd")
 const Res = preload("res://src/Resources.gd")
 const TooltipButton = preload("res://src/ui/TooltipButton.tscn")
 const Miner = preload("res://src/Miner.tscn")
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var btns = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,8 +19,16 @@ func _ready():
 		buildBtn.icon = load(item["icon"])
 		buildBtn.meta = itemType
 		add_child(buildBtn)
+		btns[itemType] = buildBtn
 		if buildBtn.connect("on_press", self, "_on_btn_press") != OK:
 			push_error("Could not connect press to build button")
+
+func _process(_delta):
+	var player = $"/root/Main/Player"
+	var equip: Equipment = player.get_node(Global.GROUP.EQUIPMENT)
+	if equip != null && btns.has(Res.ItemType.Bow):
+		btns[Res.ItemType.Bow].disabled = equip.owned_items.has(Res.ItemType.Bow)
+		btns[Res.ItemType.Bow].text = "(owned)"
 
 func _on_btn_press(btn):
 	var player = $"/root/Main/Player"

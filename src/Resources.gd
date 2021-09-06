@@ -28,7 +28,7 @@ var Items = {
 		"icon": "res://assets/icon/Pickaxe.png"
 	},
 	ItemType.Bow: {
-		"cost": { ResourceType.Wood: 10 },
+		"cost": { ResourceType.Wood: 5 },
 		"desc": "Defend yourself.",
 		"icon": "res://assets/icon/Bow.png"
 	}

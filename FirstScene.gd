@@ -6,6 +6,7 @@ const Res = preload("res://src/Resources.gd")
 func _ready():
 	if OS.has_feature("editor"):
 		cheat_grant()
+		pass
 
 func cheat_grant():
 	Resources.gatherResource($Player.get_instance_id(), Res.ResourceType.Stone, 1000)

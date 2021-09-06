@@ -27,8 +27,10 @@ func _process(_delta):
 	var player = $"/root/Main/Player"
 	var equip: Equipment = player.get_node(Global.GROUP.EQUIPMENT)
 	if equip != null && btns.has(Res.ItemType.Bow):
+		var has_bow = equip.owned_items.has(Res.ItemType.Bow)
 		btns[Res.ItemType.Bow].disabled = equip.owned_items.has(Res.ItemType.Bow)
-		btns[Res.ItemType.Bow].text = "(owned)"
+		if has_bow:
+			btns[Res.ItemType.Bow].text = "(owned)"
 
 func _on_btn_press(btn):
 	var player = $"/root/Main/Player"

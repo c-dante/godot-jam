@@ -49,9 +49,9 @@ var Upgrades = {
 	UpgradeType.FireRate: {
 		"levels": [
 			{ ResourceType.Wood: 5 },
-			{ ResourceType.Stone: 2, ResourceType.Wood: 5 },
 			{ ResourceType.Stone: 5, ResourceType.Wood: 5 },
 			{ ResourceType.Stone: 10, ResourceType.Wood: 10 },
+			{ ResourceType.Stone: 20, ResourceType.Wood: 20 },
 		],
 		"desc": "More arrows.",
 		"icon": "res://assets/icon/FireRate.png"
@@ -59,8 +59,8 @@ var Upgrades = {
 	UpgradeType.Piercing: {
 		"levels": [
 			{ ResourceType.Stone: 5 },
-			{ ResourceType.Stone: 5, ResourceType.Wood: 5 },
 			{ ResourceType.Stone: 10, ResourceType.Wood: 10 },
+			{ ResourceType.Stone: 50, ResourceType.Wood: 50 },
 		],
 		"desc": "Pierce enemies.",
 		"icon": "res://assets/icon/Piercing.png"

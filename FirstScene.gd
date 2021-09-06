@@ -5,7 +5,7 @@ const Res = preload("res://src/Resources.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if OS.has_feature("editor"):
-		cheat_grant()
+		# cheat_grant()
 		pass
 
 func cheat_grant():

@@ -45,17 +45,17 @@ func randomPointInShapes():
 
 
 const MAX_ENEMIES = 50
+const ENEMIES_PER_WAVE = 2
 onready var waveDelay = 15
 var waveNum = 1
-var toSpawn = 5
 func _on_Timer_timeout():
 	var enemies = get_tree().get_nodes_in_group(Global.GROUP.ENEMY)
+	var toSpawn = min(35, ENEMIES_PER_WAVE * waveNum)
 	var adjustedSpawn = max(0, min(MAX_ENEMIES - enemies.size(), toSpawn))
 	for _i in range(adjustedSpawn):
 		spawnEnemy()
 	$Grace.start()
 	waveNum += 1
-	toSpawn = min(35, 5 * waveNum)
 
 func _on_Grace_timeout():
 	$Timer.start()

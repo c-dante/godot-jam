@@ -9,6 +9,14 @@ A game jam project! [Stop waiting for godot](https://itch.io/jam/stop-waiting-fo
 
 Some notes and a todo and resources for now:
 
+
+# Deploy
+Built with [Godot](https://godotengine.org/). This was built on `3.2.2`.
+```
+
+```
+
+# Notes
 ## Design
 - Twinstick!!
 - The demo I have is there -- great starting place and a couple nice addons
@@ -17,7 +25,6 @@ Some notes and a todo and resources for now:
 - Scripts that track by a map of instance id are a hard pattern
   - Abstract the "enter/exit" area and map of in-area logic as a helper
   - This is used by enemies for AOE attacking as well as gatherables!!
-
 
 ### Work / TODO
 - **DONE** Basic twinstick impl going

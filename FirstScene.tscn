@@ -65,7 +65,7 @@ one_shot = true
 autostart = true
 
 [node name="Grace" type="Timer" parent="Level/Spawners/EnemySpawn"]
-wait_time = 15.0
+wait_time = 20.0
 one_shot = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Level/Spawners/EnemySpawn"]

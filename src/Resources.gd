@@ -23,7 +23,7 @@ static func itemString(res):
 # Order here is order in the build menu
 var Items = {
 	ItemType.Miner: {
-		"cost": { ResourceType.Stone: 20 },
+		"cost": { ResourceType.Stone: 10 },
 		"desc": "Drop near resources to auto-mine them.",
 		"icon": "res://assets/icon/Pickaxe.png"
 	},

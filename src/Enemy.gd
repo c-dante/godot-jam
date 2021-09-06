@@ -23,12 +23,20 @@ func _on_FSM_updated(state, _delta):
 			if target == null:
 				continue
 
-			# $FSM.set_param("has_target", target != null)
-			var targetPt = Vector3(target.global_transform.origin)
-			targetPt.y = global_transform.origin.y
+			# Handle fall through floor problem
+			if target.global_transform.origin.y < -1:
+				target = null
+				continue
+
+			var targetPt = Vector3(
+				target.global_transform.origin.x,
+				0,
+				target.global_transform.origin.z
+			)
 			$Movement.direction = global_transform.origin.direction_to(targetPt)
 			$Movement.direction.y = 0
 			look_at(targetPt, Vector3.UP)
+			rotation.x = 0
 			pass
 
 	$FSM.set_param("has_target", target != null)

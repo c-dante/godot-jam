@@ -24,6 +24,9 @@ func _physics_process(delta):
 		Global.SPAWN.add_child(anim)
 		for hit in toHit:
 			var body = toHit[hit]
+			if body == null || body.is_queued_for_deletion():
+				continue
+
 			if body.get_instance_id() != owner_id:
 				# Apply knockback, kine
 				# var as_kine = body as KinematicBody

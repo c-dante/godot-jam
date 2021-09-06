@@ -12,8 +12,13 @@ Some notes and a todo and resources for now:
 
 # Deploy
 Built with [Godot](https://godotengine.org/). This was built on `3.2.2`.
-```
+```sh
+# Export with butler
 
+butler push web c-dante/hold-out:web
+butler push windows c-dante/hold-out:windows
+butler push mac c-dante/hold-out:mac-osx
+butler push linux c-dante/hold-out:linux
 ```
 
 # Notes

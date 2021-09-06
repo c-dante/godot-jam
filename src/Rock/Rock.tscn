@@ -17,7 +17,7 @@ flags_transparent = true
 albedo_color = Color( 0.921569, 0, 1, 0.0588235 )
 
 [node name="Rock" type="StaticBody" groups=[
-"resource",
+"Resource",
 ]]
 
 [node name="Gatherable" type="Node" parent="."]

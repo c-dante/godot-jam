@@ -16,7 +16,7 @@ OS.has_feature("editor")
 
 ## Physics / Collisions
 - Layer 1 is for all things
-- Layer 2 is checked by attacks
+- Layer 2 is checked by attacks, so things that can take damage (Killable)
 - Layer 5 is for interactables
 - Layer 20 is for just the floors/walls
 

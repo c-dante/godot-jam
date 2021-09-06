@@ -5,9 +5,6 @@ const Enemey = preload("res://src/Enemy.tscn")
 # { owner: Object, shape: Shape }[]
 var areas = []
 
-# Spawn interval
-var nextSpawn = 0
-
 func _ready():
 	for id in get_shape_owners():
 		var owner = shape_owner_get_owner(id)
@@ -20,17 +17,11 @@ func _ready():
 	if areas.size() <= 0:
 		push_error("No shapes registered to spawner.")
 
-func _physics_process(delta):
-	if nextSpawn > 0:
-		nextSpawn -= delta
-
-	if nextSpawn <= 0:
-		nextSpawn = 5
-		var enemy = Enemey.instance()
-		Global.SPAWN.add_child(enemy)
-		enemy.global_translate(randomPointInShapes())
-		enemy.add_to_group(Global.GROUP.ENEMY)
-
+func spawnEnemy():
+	var enemy = Enemey.instance()
+	Global.SPAWN.add_child(enemy)
+	enemy.global_translate(randomPointInShapes())
+	enemy.add_to_group(Global.GROUP.ENEMY)
 
 func randomPointInShapes():
 	var spawn = areas[randi() % areas.size()]
@@ -51,3 +42,15 @@ func randomPointInShapes():
 
 	print("Unhandled shape: ", shape)
 	return Vector3(0, 0, 0)
+
+
+onready var waveDelay = 15
+var waveNum = 1
+var toSpawn = 5
+func _on_Timer_timeout():
+	print("Spawned %d enemies" % toSpawn)
+	for _i in range(toSpawn):
+		spawnEnemy()
+	# $Timer.start(waveDelay)
+	waveNum += 1
+	toSpawn = min(35, 5 * waveNum)

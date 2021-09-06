@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://mat/enemy.tres" type="Material" id=1]
 [ext_resource path="res://src/Movement.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" type="Script" id=7]
 [ext_resource path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" type="Script" id=8]
 [ext_resource path="res://addons/imjp94.yafsm/src/conditions/BooleanCondition.gd" type="Script" id=9]
+[ext_resource path="res://src/Attack.gd" type="Script" id=10]
 
 [sub_resource type="Resource" id=6]
 script = ExtResource( 6 )
@@ -122,7 +123,9 @@ radius = 3.0
 flags_transparent = true
 albedo_color = Color( 1, 0.445313, 0, 0.0980392 )
 
-[node name="Enemy" type="KinematicBody"]
+[node name="Enemy" type="KinematicBody" groups=[
+"Enemy",
+]]
 collision_layer = 3
 script = ExtResource( 4 )
 meshPath = NodePath("mesh")
@@ -160,14 +163,17 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="attack" type="Area" parent="."]
+[node name="Attack" type="Area" parent="."]
+input_ray_pickable = false
 collision_layer = 0
 collision_mask = 2147483650
+script = ExtResource( 10 )
 
-[node name="CollisionShape" type="CollisionShape" parent="attack"]
+[node name="CollisionShape" type="CollisionShape" parent="Attack"]
 shape = SubResource( 4 )
 
-[node name="CSGSphere" type="CSGSphere" parent="attack"]
+[node name="CSGSphere" type="CSGSphere" parent="Attack"]
 radius = 3.0
 material = SubResource( 5 )
 [connection signal="updated" from="FSM" to="." method="_on_FSM_updated"]
+[connection signal="body_entered" from="Attack" to="Attack" method="_on_Attack_body_entered"]

@@ -8,8 +8,10 @@
 [ext_resource path="res://src/ui/ToolTip.gd" type="Script" id=9]
 
 [node name="main" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -39,25 +41,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Resources" type="Tabs" parent="Menu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 29.0
-margin_right = -5.0
-margin_bottom = -5.0
-
-[node name="Tree" type="Tree" parent="Menu/Resources"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-columns = 2
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Build" type="Tabs" parent="Menu"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -70,6 +54,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 columns = 4
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resources" type="Tabs" parent="Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="Tree" type="Tree" parent="Menu/Resources"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 2
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -142,8 +144,100 @@ Mouse to aim
 Be sad if you're on mobile (sorry) or want to plug in a gamepad (again, sorry)"
 dialog_autowrap = true
 
+[node name="center" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Time" type="Label" parent="center"]
+margin_left = 540.696
+margin_right = 604.696
+margin_bottom = 22.0
+text = "10:00:00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+margin_right = -50.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="right"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wave_time" type="Label" parent="right/VBoxContainer"]
+margin_right = 974.0
+margin_bottom = 22.0
+size_flags_vertical = 1
+text = "Next wave in: 00:00:00"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wave_time2" type="Label" parent="right/VBoxContainer"]
+margin_top = 26.0
+margin_right = 974.0
+margin_bottom = 48.0
+size_flags_vertical = 1
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wave_time3" type="Label" parent="right/VBoxContainer"]
+margin_top = 52.0
+margin_right = 974.0
+margin_bottom = 74.0
+size_flags_vertical = 1
+text = "100 stone"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wave_time4" type="Label" parent="right/VBoxContainer"]
+margin_top = 78.0
+margin_right = 974.0
+margin_bottom = 100.0
+size_flags_vertical = 1
+text = "884894894 wood"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wave_time5" type="Label" parent="right/VBoxContainer"]
+margin_top = 104.0
+margin_right = 974.0
+margin_bottom = 126.0
+size_flags_vertical = 1
+text = "has a bow"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ToolTip" type="Control" parent="."]
 visible = false
+mouse_filter = 2
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false

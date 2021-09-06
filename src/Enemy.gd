@@ -7,9 +7,6 @@ onready var mesh = get_node(meshPath)
 var target
 
 func _on_FSM_updated(state, _delta):
-	# Sync the target state
-	$FSM.set_param("has_target", target != null)
-
 	match state:
 		"Entry":
 			pass
@@ -19,14 +16,17 @@ func _on_FSM_updated(state, _delta):
 				self,
 				get_tree().get_nodes_in_group(Global.GROUP.PLAYER)
 			)
-			print(target)
 
 		"MoveToTarget":
 			if target == null:
-				return
+				continue
 
 			# $FSM.set_param("has_target", target != null)
-			var targetPt = target.global_transform.origin
-			$Movement.direction = (targetPt - global_transform.origin).normalized()
+			var targetPt = Vector3(target.global_transform.origin)
+			targetPt.y = global_transform.origin.y
+			$Movement.direction = global_transform.origin.direction_to(targetPt)
+			$Movement.direction.y = 0
 			look_at(targetPt, Vector3.UP)
 			pass
+
+	$FSM.set_param("has_target", target != null)

@@ -5,11 +5,11 @@ const GROUP = {
 	# Group of things that can be "killed", node must be named the group name
 	"KILLABLE": "Killable",
 	# The player and player owned things
-	"PLAYER": "player",
+	"PLAYER": "Player",
 	# All the arrows / projectiles
-	"ARROW": "arrow",
+	"ARROW": "Arrow",
 	# All resources on the map
-	"RESOURCE": "resource",
+	"RESOURCE": "Resource",
 	# All neutral mob enemies
 	"ENEMY": "Enemy",
 }

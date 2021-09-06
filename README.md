@@ -29,11 +29,37 @@ Some notes and a todo and resources for now:
   - **DONE**
 - Enemies / AI
   - Something to break miners -- and you
+  - Track how many attackers + spread out more to disrupt
 - Make a survival loop + score + death/restart
-  - Player health
+  - Player health (time instead?)
+  - Score - Resources mined, enemies killed, time survived, resources spent (?)
+  - death screen
+  - **DONE** Restart
+- Ux
+  - Player, enemy, miner health bars
+  - Resource gathering
+  - Miner state
+  - Weapon / equipment state
+  - Build menu cleanup
+  - Pause menu
+  - Newgame / death screen
+  - Save/Load (no)
+- Juice
+  - Arrow flight, fire, despawn, hit feedback
+  - Enemy attack, damage, death feedback
+  - Miner attack, damage, death feedback
+  - Player attack, damage, death feedback
+  - Miner mining feedback
+  - Mining feedback!
+- Gameplay
   - Score
-  - Restart + death screen
--
+  - Player death
+  - Expand the map and playable area
+  - Weapon upgrades and types
+  - More enemey attack patterns
+  - **DONE** Safe/Danger cycle
+    - Can be better, but for now a timer
+  - Instead of health a "time" bar?
 
 ## Resources
 - [Some docs](https://docs.godotengine.org/en/stable/tutorials/physics/rigid_body.html)

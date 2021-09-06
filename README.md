@@ -25,12 +25,15 @@ Some notes and a todo and resources for now:
   - **DONE**: We have rocks and trees
 - Building things?
   - **DONE** Make a miner
-- Enemies / AI
-  - **DONE** Something to break miners -- and you
 - Firing a weapon (build it first!)
   - **DONE**
+- Enemies / AI
+  - Something to break miners -- and you
 - Make a survival loop + score + death/restart
-
+  - Player health
+  - Score
+  - Restart + death screen
+-
 
 ## Resources
 - [Some docs](https://docs.godotengine.org/en/stable/tutorials/physics/rigid_body.html)

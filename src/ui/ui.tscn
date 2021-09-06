@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://test.theme" type="Theme" id=1]
 [ext_resource path="res://src/ui/MenuBtn.gd" type="Script" id=2]
 [ext_resource path="res://src/ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/ui.theme" type="Theme" id=4]
-[ext_resource path="res://src/ui/LoadBtn.gd" type="Script" id=5]
-[ext_resource path="res://src/ui/SaveBtn.gd" type="Script" id=6]
 [ext_resource path="res://src/ui/Tree.gd" type="Script" id=7]
 [ext_resource path="res://src/ui/BuildMenu.gd" type="Script" id=8]
 [ext_resource path="res://src/ui/ToolTip.gd" type="Script" id=9]
@@ -123,78 +120,12 @@ margin_bottom = 22.0
 text = "Godot <3"
 align = 1
 
+[node name="Button" type="Button" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
+margin_right = 12.0
+margin_bottom = 22.0
+text = "Reload"
+
 [node name="DISABLED" type="Node" parent="Menu"]
-
-[node name="Main" type="Tabs" parent="Menu/DISABLED"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 58.0
-margin_bottom = 24.0
-
-[node name="GridContainer" type="GridContainer" parent="Menu/DISABLED/Main"]
-margin_right = 295.0
-margin_bottom = 182.0
-columns = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveBtn" type="Button" parent="Menu/DISABLED/Main/GridContainer"]
-margin_right = 41.0
-margin_bottom = 22.0
-disabled = true
-text = "Save"
-script = ExtResource( 6 )
-
-[node name="LoadBtn" type="Button" parent="Menu/DISABLED/Main/GridContainer"]
-margin_left = 51.0
-margin_right = 93.0
-margin_bottom = 22.0
-disabled = true
-text = "Load"
-script = ExtResource( 5 )
-
-[node name="Cams" type="Tabs" parent="Menu/DISABLED"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 58.0
-margin_bottom = 24.0
-theme = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CameraBox" type="VBoxContainer" parent="Menu/DISABLED/Cams"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player Camera" type="Button" parent="Menu/DISABLED/Cams/CameraBox"]
-margin_right = 335.0
-margin_bottom = 22.0
-rect_pivot_offset = Vector2( 236.825, 76.468 )
-toggle_mode = true
-text = "Player Camera"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Camera1" type="Button" parent="Menu/DISABLED/Cams/CameraBox"]
-margin_top = 26.0
-margin_right = 335.0
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 236.825, 76.468 )
-toggle_mode = true
-text = "Camera 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="IntroDialog" type="AcceptDialog" parent="."]
 margin_left = 82.1821
@@ -271,7 +202,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
-[connection signal="pressed" from="Menu/DISABLED/Main/GridContainer/SaveBtn" to="Menu/DISABLED/Main/GridContainer/SaveBtn" method="_on_SaveBtn_pressed"]
-[connection signal="pressed" from="Menu/DISABLED/Main/GridContainer/LoadBtn" to="Menu/DISABLED/Main/GridContainer/LoadBtn" method="_on_LoadBtn_pressed"]
-[connection signal="pressed" from="Menu/DISABLED/Cams/CameraBox/Player Camera" to="." method="_on_Player_Camera_pressed"]
-[connection signal="pressed" from="Menu/DISABLED/Cams/CameraBox/Camera1" to="." method="_on_Camera1_pressed"]
+[connection signal="pressed" from="Menu/Credits/ScrollContainer/VBoxContainer/Button" to="." method="_on_Reload_pressed"]

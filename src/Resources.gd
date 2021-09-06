@@ -33,9 +33,6 @@ var Items = {
 	}
 }
 
-# Object.instance_id -> ResourceType -> int
-var Inventory = {}
-
 # Checks if a given inventorty can afford a cost
 static func canAfford(inv, cost):
 	for mat in cost:
@@ -47,3 +44,15 @@ static func canAfford(inv, cost):
 static func removeCost(inv, cost):
 	for mat in cost:
 		inv[mat] -= cost[mat]
+
+
+# --------------------------------------------
+# Object.instance_id -> ResourceType -> int
+var Inventory = {}
+
+func _ready():
+	if Events.connect("on_restart_game", self, "_reset_state", [], CONNECT_DEFERRED) != OK:
+		push_error("Failed to connect to reset")
+
+func _reset_state():
+	Inventory = {}

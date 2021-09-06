@@ -1,6 +1,6 @@
 extends Node
 
-onready var SPAWN = $"/root/Main/spawn"
+onready var SPAWN: Node = $"/root/Main/spawn"
 
 const GROUP = {
 	# Group of things that can be "killed", node must be named the group name
@@ -18,8 +18,13 @@ const GROUP = {
 var Rng = RandomNumberGenerator.new()
 
 func _ready():
+	_reset_state()
+
+func _reset_state():
+	print("RESET GLOBAL")
 	Rng.seed = 8675309
 	seed(Rng.seed)
+	SPAWN = $"/root/Main/spawn"
 
 func gatherResource(owner_instance_id: int, resource: int, amount: float):
 	var inv = Resources.Inventory

@@ -177,3 +177,4 @@ radius = 3.0
 material = SubResource( 5 )
 [connection signal="updated" from="FSM" to="." method="_on_FSM_updated"]
 [connection signal="body_entered" from="Attack" to="Attack" method="_on_Attack_body_entered"]
+[connection signal="body_exited" from="Attack" to="Attack" method="_on_Attack_body_exited"]

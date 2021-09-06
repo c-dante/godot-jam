@@ -94,12 +94,15 @@ Close or hit ok to start again.
 	$GameOver.popup_centered()
 
 
-onready var wave_time_txt = $"right/VBoxContainer/wave_time"
+onready var center_status_txt = $"center/center_status"
+onready var game_time_txt = $"right/VBoxContainer/game_time"
 onready var life_txt = $"right/VBoxContainer/life"
 onready var stone_txt = $"right/VBoxContainer/stone"
 onready var wood_txt = $"right/VBoxContainer/wood"
 onready var has_bow_txt = $"right/VBoxContainer/has_bow"
+onready var enemies_left_txt = $"right/VBoxContainer/enemies_left"
 onready var _player = $"/root/Main/Player"
+onready var _enemy_spawn = $"/root/Main/Level/Spawners/EnemySpawn"
 func update_stats():
 	var id = _player.get_instance_id()
 	var equip: Equipment = _player.get_node(Global.GROUP.EQUIPMENT)
@@ -110,6 +113,16 @@ func update_stats():
 	if killable != null:
 		life_txt.text = "%d life" % killable.life
 
-	wave_time_txt.text = Global.formatTime(_player.gameTime)
+	game_time_txt.text = Global.formatTime(_player.gameTime)
 	stone_txt.text = "%d stone" % Resources.getResource(id, Res.ResourceType.Stone)
 	wood_txt.text = "%d wood" % Resources.getResource(id, Res.ResourceType.Wood)
+
+	var enemies = get_tree().get_nodes_in_group(Global.GROUP.ENEMY)
+	enemies_left_txt.text = "%d enemies remain" % enemies.size()
+
+	var spawnTimer = _enemy_spawn.get_node("Timer") as Timer
+	if spawnTimer != null:
+		if spawnTimer.is_stopped():
+			center_status_txt.text = "!! ACTIVE WAVE !!"
+		else:
+			center_status_txt.text = "Next wave in: %s" % Global.formatTime(spawnTimer.time_left)

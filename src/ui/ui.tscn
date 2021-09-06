@@ -152,25 +152,19 @@ margin_bottom = 126.0
 text = "Godot <3"
 align = 1
 
-[node name="IntroDialog" type="AcceptDialog" parent="."]
-margin_left = 82.1821
-margin_top = 119.523
-margin_right = 434.182
-margin_bottom = 323.523
-rect_scale = Vector2( 0.987951, 1.01782 )
-popup_exclusive = true
-window_title = "Welcome!"
-dialog_text = "It's Hold Out! Survive as long as you can.
+[node name="center" type="Control" parent="."]
+anchor_right = 1.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-Mine resources with a miner or by staying close. BUILD A BOW.
-
-WASD to move
-Q, E to rotate the view
-Shift to speed up
-Mouse to aim
-
-Be sad if you're on mobile (sorry) or want to plug in a gamepad (again, sorry)"
-dialog_autowrap = true
+[node name="center_status" type="Label" parent="center"]
+anchor_right = 1.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="right" type="Control" parent="."]
 anchor_right = 1.0
@@ -192,7 +186,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="wave_time" type="Label" parent="right/VBoxContainer"]
+[node name="game_time" type="Label" parent="right/VBoxContainer"]
 margin_right = 974.0
 margin_bottom = 22.0
 size_flags_vertical = 1
@@ -246,6 +240,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="enemies_left" type="Label" parent="right/VBoxContainer"]
+margin_top = 130.0
+margin_right = 974.0
+margin_bottom = 152.0
+size_flags_vertical = 1
+text = "has a bow"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ToolTip" type="Control" parent="."]
 visible = false
 mouse_filter = 2
@@ -266,6 +271,26 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="IntroDialog" type="AcceptDialog" parent="."]
+margin_left = 82.1821
+margin_top = 119.523
+margin_right = 434.182
+margin_bottom = 374.523
+rect_scale = Vector2( 0.987951, 1.01782 )
+popup_exclusive = true
+window_title = "Welcome!"
+dialog_text = "It's Hold Out! Survive as long as you can.
+
+Mine resources with a miner or by staying close. BUILD A BOW.
+
+WASD to move
+Q, E to rotate the view
+Shift to speed up
+Mouse to aim
+
+Be sad if you're on mobile (sorry) or want to plug in a gamepad (again, sorry)"
+dialog_autowrap = true
 
 [node name="GameOver" type="AcceptDialog" parent="."]
 popup_exclusive = true

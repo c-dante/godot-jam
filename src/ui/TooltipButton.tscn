@@ -6,7 +6,6 @@
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
-hint_tooltip = "Build a miner, can harvest resources without you there"
 align = 0
 expand_icon = true
 script = ExtResource( 2 )

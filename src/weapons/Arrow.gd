@@ -7,11 +7,13 @@ const FORWARD = Vector3(0, 0, 1)
 const LIFETIME = 3
 
 export (int) var owner_id
+export (int) var piercing = 0
 export (float) var speed = 25.0
 export (float) var knockback = 100.0
 export (float) var damage = 10.0
 
 var alive = true
+var pierceTrack = {}
 
 func _ready():
 	if get_tree().create_timer(LIFETIME).connect("timeout", self, "_on_timeout") != OK:
@@ -38,7 +40,10 @@ func _on_arrow_body_entered(body):
 	if body.is_in_group(Global.GROUP.PLAYER):
 		return
 
-	if body.get_instance_id() != owner_id:
+	if body.get_instance_id() != owner_id && !pierceTrack.get(body.get_instance_id(), false):
+		pierceTrack[body.get_instance_id()] = true
+		piercing -= 1
+
 		# Apply knockback
 		var as_kine = body as KinematicBody
 		if as_kine != null:
@@ -52,6 +57,7 @@ func _on_arrow_body_entered(body):
 			else:
 				killable.onHit(self, damage)
 
-		# Remove self
-		alive = false
-		queue_free()
+		# Remove self if no more piercing
+		if piercing <= 0:
+			alive = false
+			queue_free()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiscellaneousOriginal 20.png-a7a2dc4abe7fcafb8f47f6c07f02e4ef.stex"
+path="res://.import/FireRate.png-0db75c38a22bc8d20d06f73831dbe90a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/MiscellaneousOriginal 20.png"
-dest_files=[ "res://.import/MiscellaneousOriginal 20.png-a7a2dc4abe7fcafb8f47f6c07f02e4ef.stex" ]
+source_file="res://assets/icon/FireRate.png"
+dest_files=[ "res://.import/FireRate.png-0db75c38a22bc8d20d06f73831dbe90a.stex" ]
 
 [params]
 

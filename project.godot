@@ -20,9 +20,19 @@ _global_script_classes=[ {
 "path": "res://src/Enemy.gd"
 }, {
 "base": "Node",
+"class": "Equipment",
+"language": "GDScript",
+"path": "res://src/Equipment.gd"
+}, {
+"base": "Node",
 "class": "Killable",
 "language": "GDScript",
 "path": "res://src/Killable.gd"
+}, {
+"base": "RigidBody",
+"class": "Miner",
+"language": "GDScript",
+"path": "res://src/Miner.gd"
 }, {
 "base": "Node",
 "class": "Movement",
@@ -32,7 +42,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Bar": "",
 "Enemy": "",
+"Equipment": "",
 "Killable": "",
+"Miner": "",
 "Movement": ""
 }
 

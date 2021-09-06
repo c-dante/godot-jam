@@ -20,6 +20,7 @@ static func itemString(res):
 		ItemType.Bow:
 			return "Bow"
 
+
 # Order here is order in the build menu
 var Items = {
 	ItemType.Miner: {
@@ -31,6 +32,38 @@ var Items = {
 		"cost": { ResourceType.Wood: 5 },
 		"desc": "Defend yourself.",
 		"icon": "res://assets/icon/Bow.png"
+	}
+}
+
+# Upgrades
+enum UpgradeType { FireRate, Piercing }
+
+static func upgradeString(res):
+	match res:
+		UpgradeType.FireRate:
+			return "Fire Rate"
+		UpgradeType.Piercing:
+			return "Piercing"
+
+var Upgrades = {
+	UpgradeType.FireRate: {
+		"levels": [
+			{ ResourceType.Wood: 5 },
+			{ ResourceType.Stone: 2, ResourceType.Wood: 5 },
+			{ ResourceType.Stone: 5, ResourceType.Wood: 5 },
+			{ ResourceType.Stone: 10, ResourceType.Wood: 10 },
+		],
+		"desc": "More arrows.",
+		"icon": "res://assets/icon/FireRate.png"
+	},
+	UpgradeType.Piercing: {
+		"levels": [
+			{ ResourceType.Stone: 5 },
+			{ ResourceType.Stone: 5, ResourceType.Wood: 5 },
+			{ ResourceType.Stone: 10, ResourceType.Wood: 10 },
+		],
+		"desc": "Pierce enemies.",
+		"icon": "res://assets/icon/Piercing.png"
 	}
 }
 

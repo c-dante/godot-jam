@@ -1,6 +1,7 @@
 extends Area
 
 const Killable = preload("res://src/Killable.gd")
+const Burst = preload("res://src/effects/Burst.tscn")
 
 export (float) var damage = 5.0
 export (float) var cooldown = 1.0
@@ -18,14 +19,17 @@ func _physics_process(delta):
 
 	if !toHit.empty():
 		currentCooldown = cooldown
+		var anim = Burst.instance()
+		anim.set_translation(get_global_transform().origin)
+		Global.SPAWN.add_child(anim)
 		for hit in toHit:
 			var body = toHit[hit]
 			if body.get_instance_id() != owner_id:
 				# Apply knockback, kine
-				var as_kine = body as KinematicBody
-				if as_kine != null:
-					var xform = global_transform.basis.z
-					as_kine.move_and_slide(knockback * xform)
+				# var as_kine = body as KinematicBody
+				# if as_kine != null:
+				# 	var direction = global_transform.origin.direction_to(as_rb.global_transform.origin)
+				# 	as_kine.move_and_slide(knockback * direction)
 
 				# Apply knockback, rigid
 				var as_rb = body as RigidBody

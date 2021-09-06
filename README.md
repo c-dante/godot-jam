@@ -29,6 +29,7 @@ Some notes and a todo and resources for now:
   - **DONE** Something to break miners -- and you
 - Firing a weapon (build it first!)
   - **DONE**
+- Make a survival loop + score + death/restart
 
 
 ## Resources

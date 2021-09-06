@@ -1,11 +1,15 @@
 extends Spatial
 
+const Killable = preload("res://src/Killable.gd")
 const FORWARD = Vector3(0, 0, 1)
 const LIFETIME = 3
 
 export (int) var owner_id
 export (float) var speed = 25.0
 export (float) var knockback = 100.0
+export (float) var damage = 10.0
+
+var alive = true
 
 func _ready():
 	if get_tree().create_timer(LIFETIME).connect("timeout", self, "_on_timeout") != OK:
@@ -20,6 +24,9 @@ func _on_timeout():
 	queue_free()
 
 func _on_arrow_body_entered(body):
+	if !alive:
+		return
+
 	if body.get_instance_id() != owner_id:
 		# Apply knockback
 		var as_kine = body as KinematicBody
@@ -28,7 +35,12 @@ func _on_arrow_body_entered(body):
 			as_kine.move_and_slide(knockback * xform)
 
 		if body.is_in_group(Global.GROUP.KILLABLE):
-			print("Deal damage...")
+			var killable = body.find_node(Global.GROUP.KILLABLE) as Killable
+			if killable == null:
+				push_error("Failed to find killable in collision!")
+			else:
+				killable.onHit(self, damage)
 
 		# Remove self
+		alive = false
 		queue_free()

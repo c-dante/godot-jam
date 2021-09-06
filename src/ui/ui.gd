@@ -13,6 +13,10 @@ onready var cam1Btn = $"Menu/Cams/CameraBox/Camera1"
 var viewedIntro = false
 
 func _ready():
+	if OS.has_feature("editor"):
+		print("RAN FROM EDITOR")
+		viewedIntro = true
+
 	pause_mode = PAUSE_MODE_PROCESS
 	view = get_viewport();
 	playerCam = get_node(playerCamPath)

@@ -21,23 +21,23 @@ geometry/collision_mask = 4293918721
 
 [sub_resource type="PhysicsMaterial" id=2]
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 55, 1, 20 )
 
-[sub_resource type="BoxShape" id=13]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 20, 1, 95 )
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=5]
 
-[sub_resource type="CapsuleMesh" id=4]
+[sub_resource type="CapsuleMesh" id=6]
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.14902, 1, 0, 1 )
 metallic = 0.16
 
-[sub_resource type="CylinderMesh" id=6]
+[sub_resource type="CylinderMesh" id=8]
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 500, 10, 500 )
 
 [node name="Main" type="Spatial"]
@@ -69,19 +69,19 @@ script = ExtResource( 14 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Spawners/EnemySpawn"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 75 )
-shape = SubResource( 12 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Spawners/EnemySpawn"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75 )
-shape = SubResource( 12 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Spawners/EnemySpawn"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Spawners/EnemySpawn"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 4 )
 
 [node name="Resources" type="Node" parent="Navigation/NavigationMeshInstance"]
 
@@ -145,22 +145,22 @@ omni_attenuation = 0.840895
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="mesh" type="Spatial" parent="Player"]
 
 [node name="body" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 cast_shadow = 0
-mesh = SubResource( 4 )
-material = SubResource( 5 )
+mesh = SubResource( 6 )
+material = SubResource( 7 )
 
 [node name="front-indicator" type="CSGMesh" parent="Player/mesh"]
 transform = Transform( 0.25, 0, 0, 0, -1.62921e-07, -0.25, 0, 1, -4.07302e-08, 0, 1, -1 )
 layers = 2147483649
 cast_shadow = 0
-mesh = SubResource( 6 )
-material = SubResource( 5 )
+mesh = SubResource( 8 )
+material = SubResource( 7 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -186,7 +186,7 @@ collision_layer = 0
 script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="garbage"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="DebugPt" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 5, 35 )

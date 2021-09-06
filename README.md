@@ -60,7 +60,6 @@ Some notes and a todo and resources for now:
   - Expand the map and playable area
   - Weapon upgrades and types
   - More enemey attack patterns
-  - Instead of health a "time" bar?
 
 ## HACK FIXES
 - Gatherable assumes only player

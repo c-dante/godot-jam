@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/ui/MenuBtn.gd" type="Script" id=2]
 [ext_resource path="res://src/ui/ui.gd" type="Script" id=3]
@@ -6,6 +6,10 @@
 [ext_resource path="res://src/ui/Tree.gd" type="Script" id=7]
 [ext_resource path="res://src/ui/BuildMenu.gd" type="Script" id=8]
 [ext_resource path="res://src/ui/ToolTip.gd" type="Script" id=9]
+
+[sub_resource type="Theme" id=1]
+GridContainer/constants/hseparation = 25
+GridContainer/constants/vseparation = 25
 
 [node name="main" type="Control"]
 anchor_right = 1.0
@@ -76,7 +80,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Tabs" parent="Menu"]
+[node name="Game" type="Tabs" parent="Menu"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -88,7 +92,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Credits"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Game"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -97,7 +101,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Credits/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Game/ScrollContainer"]
 margin_right = 335.0
 margin_bottom = 187.0
 size_flags_horizontal = 3
@@ -106,33 +110,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="Grid" type="GridContainer" parent="Menu/Game/ScrollContainer/VBoxContainer"]
 margin_right = 335.0
 margin_bottom = 22.0
-text = "Reload"
+theme = SubResource( 1 )
+columns = 4
 
-[node name="dante" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
-margin_right = 335.0
+[node name="Button" type="Button" parent="Menu/Game/ScrollContainer/VBoxContainer/Grid"]
+margin_right = 124.0
 margin_bottom = 22.0
-text = "Game by c-dante"
+text = "Show Intro Dialog"
 
-[node name="iknowkingrabbit" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
+[node name="new game" type="Button" parent="Menu/Game/ScrollContainer/VBoxContainer/Grid"]
+margin_left = 128.0
+margin_right = 210.0
+margin_bottom = 22.0
+text = "New Game"
+
+[node name="dante" type="Label" parent="Menu/Game/ScrollContainer/VBoxContainer"]
 margin_top = 26.0
 margin_right = 335.0
 margin_bottom = 48.0
-text = "Icons by @iknowkingrabbit"
+text = "Game by c-dante"
 
-[node name="stopwaiting" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
+[node name="iknowkingrabbit" type="Label" parent="Menu/Game/ScrollContainer/VBoxContainer"]
 margin_top = 52.0
 margin_right = 335.0
 margin_bottom = 74.0
-text = "made for the #stop-waiting-for-godot jam"
+text = "Icons by @iknowkingrabbit"
 
-[node name="godot" type="Label" parent="Menu/Credits/ScrollContainer/VBoxContainer"]
+[node name="stopwaiting" type="Label" parent="Menu/Game/ScrollContainer/VBoxContainer"]
 margin_top = 78.0
 margin_right = 335.0
 margin_bottom = 100.0
+text = "made for the #stop-waiting-for-godot jam"
+
+[node name="godot" type="Label" parent="Menu/Game/ScrollContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 335.0
+margin_bottom = 126.0
 text = "Godot <3"
 align = 1
 
@@ -144,7 +160,9 @@ margin_bottom = 323.523
 rect_scale = Vector2( 0.987951, 1.01782 )
 popup_exclusive = true
 window_title = "Welcome!"
-dialog_text = "It's Hold Out! Survive as long as you can, mine resources to build and upgrade, and defeat waves of enemies.
+dialog_text = "It's Hold Out! Survive as long as you can.
+
+Mine resources with a miner or by staying close. BUILD A BOW.
 
 WASD to move
 Q, E to rotate the view
@@ -257,4 +275,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="toggled" from="MenuBtn" to="MenuBtn" method="_on_MenuBtn_toggled"]
-[connection signal="pressed" from="Menu/Credits/ScrollContainer/VBoxContainer/Button" to="." method="_on_Reload_pressed"]
+[connection signal="pressed" from="Menu/Game/ScrollContainer/VBoxContainer/Grid/Button" to="." method="openIntro"]
+[connection signal="pressed" from="Menu/Game/ScrollContainer/VBoxContainer/Grid/new game" to="." method="_on_Reload_pressed"]

@@ -28,10 +28,13 @@ func _ready():
 func _process(_delta):
 	if !Global.viewedIntro:
 		Global.viewedIntro = true
-		get_tree().paused = true
-		$IntroDialog.popup_centered()
+		openIntro()
 
 	update_stats()
+
+func openIntro():
+	get_tree().paused = true
+	$IntroDialog.popup_centered()
 
 func introClosed():
 	get_tree().paused = false
@@ -52,12 +55,19 @@ func killableKill(entity):
 
 func gameOver(player):
 	get_tree().paused = true
+
+	var equip: Equipment = player.get_node(Global.GROUP.EQUIPMENT)
+	var has_bow_text = "You did not build a bow"
+	if equip != null:
+		has_bow_text = "You built a bow"
+
 	var score = 0
 	score += 10 * player.minersBuilt
 	score += 100 * player.kills
 	score += floor(player.gameTime)
 	score += player.minedResources
 	score -= 10 * player.minersLost
+
 
 	var result_text = """
 Score: {score}
@@ -66,6 +76,7 @@ You survived for {time}
 You slayed {kills} enemies
 You built {built_miners} miners and lost {lost_miners} of them
 You mined {total_mined} resources
+{bow}
 
 Thanks for playing!
 
@@ -78,6 +89,7 @@ Close or hit ok to start again.
 		"built_miners": player.minersBuilt,
 		"lost_miners": player.minersLost,
 		"total_mined": player.minedResources,
+		"bow": has_bow_text,
 	})
 	$GameOver.popup_centered()
 
